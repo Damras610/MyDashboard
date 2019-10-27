@@ -2,4 +2,10 @@
     <!-- Login fragment margins. -->
     <dimen name="login_fragment_vertical_margin">32dp</dimen>
     <dimen name="login_fragment_horizontal_margin">32dp</dimen>
+
+    <!-- Styles -->
+    <dimen name="button_padding_start">12dp</dimen>
+    <dimen name="button_padding_end">12dp</dimen>
+    <dimen name="title_text_size">24sp</dimen>
+
 </resources>

@@ -24,18 +24,17 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
             <TextView
-                    android:text="@string/sign_in_to"
+                    android:text="@string/sign_on_to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/login_toptext_tv"
+                    android:id="@+id/registration_toptext_tv"
                     style="@style/AppTheme.TitleTextView"/>
 
             <ImageView
-                    android:id="@+id/login_logo_image"
+                    android:id="@+id/registration_logo_image"
                     android:src="@drawable/im_logo_with_text"
                     android:contentDescription="@string/cd_splash_screen_logo"
                     android:layout_width="wrap_content"
@@ -50,8 +49,7 @@
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                android:orientation="vertical">
+                app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -60,10 +58,27 @@
                     android:hint="@string/username"
                     android:autofillHints="username"
                     android:ems="10"
-                    android:id="@+id/login_username_edit"
+                    android:id="@+id/registration_username_edit"
                     android:drawableStart="@drawable/selector_account_ic"
-                    android:drawablePadding="8dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+                    android:drawablePadding="8dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                app:helperText="@string/optional_field">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email"
+                    android:autofillHints="emailAddress"
+                    android:ems="10"
+                    android:id="@+id/registration_email_edit"
+                    android:drawableStart="@drawable/selector_email_ic"
+                    android:drawablePadding="8dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -79,22 +94,11 @@
                     android:hint="@string/password"
                     android:autofillHints="password"
                     android:ems="10"
-                    android:id="@+id/login_password_edit"
+                    android:id="@+id/registration_password_edit"
                     android:drawableStart="@drawable/selector_password_ic"
-                    android:drawablePadding="8dp"/>
+                    android:drawablePadding="8dp"
+                    app:passwordToggleEnabled="true"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp"/>
-
-        <Button
-                android:text="@string/sign_in"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/login_sign_in_button"
-                android:layout_gravity="center"
-                style="@style/AppTheme.ButtonAccent"/>
 
         <Space
                 android:layout_width="match_parent"
@@ -103,29 +107,21 @@
         <Button
                 android:text="@string/sign_on"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/registration_sign_on_button"
+                android:layout_gravity="center"
+                style="@style/AppTheme.ButtonAccent"/>
+
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
+        <Button
+                android:text="@string/back_to_login"
+                android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:id="@+id/login_sign_on_button"
+                android:id="@+id/registration_back_to_login"
                 style="@style/AppTheme.ButtonPrimary"/>
-
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="32dp"/>
-
-        <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorPrimaryDark"
-                />
-
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="32dp"/>
-
-        <com.google.android.gms.common.SignInButton
-                android:id="@+id/login_google_sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

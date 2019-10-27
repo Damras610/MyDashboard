@@ -14,8 +14,24 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <!-- Style for Splash Screen. -->
-    <style name="SplashScreenTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name ="android:windowBackground">@drawable/splash_screen_background</item>
+    <!-- Button Styles. -->
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button">
+        <item name="android:paddingStart">@dimen/button_padding_start</item>
+        <item name="android:paddingEnd">@dimen/button_padding_end</item>
+    </style>
+    <style name="AppTheme.ButtonPrimary" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_round_primary</item>
+        <item name="android:textColor">@color/colorTextOnPrimary</item>
+    </style>
+    <style name="AppTheme.ButtonAccent" parent="AppTheme.Button">
+        <item name="android:background">@drawable/shape_round_accent</item>
+        <item name="android:textColor">@color/colorTextOnAccent</item>
+    </style>
+
+    <!-- TextView Styles. -->
+    <style name="AppTheme.TitleTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/droidsans</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
     </style>
 </resources>

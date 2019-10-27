@@ -8,16 +8,30 @@
         tools:context=".splash.SplashFragment">
 
 
-    <ImageView
-            android:id="@+id/imageView"
-            android:src="@drawable/splash_screen_logo"
-            android:contentDescription="@string/cd_splash_screen_logo"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+                android:text="@string/welcome_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/splash_toptext_tv"
+                style="@style/AppTheme.TitleTextView"/>
+
+        <ImageView
+                android:id="@+id/splash_logo_image"
+                android:src="@drawable/im_logo_with_text"
+                android:contentDescription="@string/cd_splash_screen_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

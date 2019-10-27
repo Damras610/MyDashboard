@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Dashboard</string>
+    <string name="back_to_login">Retour à l\'écran de connexion</string>
+    <string name="cd_splash_screen_logo">Logo de l\'app Dashboard</string>
+    <string name="sign_on">Créer un compte</string>
+    <string name="email">Adresse email</string>
+    <string name="google_sign_in">Se connecter avec Google</string>
+    <string name="password">Mot de passe</string>
+    <string name="sign_in">Connexion classique</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="welcome_in">Bienvenue dans votre</string>
+    <string name="sign_in_to">Connectez-vous sur votre</string>
+    <string name="sign_on_to">Créez votre propre</string>
+    <string name="invalid_username">Nom d\'utilisateur invalide</string>
+    <string name="invalid_password">Mot de passe invalide</string>
+    <string name="optional_field">*Optionel</string>
+
+</resources>

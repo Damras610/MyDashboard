@@ -1,11 +1,17 @@
 package com.example.mydashboard.model
 
 enum class AuthenticationStatus {
-    AUTHENTICATE,
-    NOT_AUTHENTICATE
+    UNAUTHENTICATED,
+    AUTHENTICATED,
+}
+
+enum class AuthenticationError {
+    NO_ERROR,
+    INVALID_USERNAME,
+    INVALID_PASSWORD
 }
 
 data class Authentication (
-    val status: AuthenticationStatus = AuthenticationStatus.NOT_AUTHENTICATE,
+    val status: AuthenticationStatus = AuthenticationStatus.UNAUTHENTICATED,
     val username: String = ""
 )

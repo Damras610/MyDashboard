@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#03A9F4</color>
-    <color name="colorPrimaryDark">#0288D1</color>
-    <color name="colorAccent">#F44F03</color>
-    <color name="colorAnalogousLight">#03F4C8</color>
-    <color name="colorAnalogousDark">#032FF4</color>
-    <color name="colorTriadicLight">#F403A8</color>
-    <color name="colorTriadicDark">#4F03F4</color>
+    <color name="colorPrimary">#1F426E</color>
+    <color name="colorPrimaryDark">#001C42</color>
+    <color name="colorPrimaryLight">#506D9D</color>
+    <color name="colorAccent">#F48500</color>
+    <color name="colorAccentDark">#FFB643</color>
+    <color name="colorAccentLight">#BB5700</color>
+
+    <color name="colorTextOnPrimary">#FFFFFF</color>
+    <color name="colorTextOnAccent">#000000</color>
 
 </resources>
