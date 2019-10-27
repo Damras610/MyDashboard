@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:height="600dp"
-        android:width="600dp"
-        android:viewportHeight="600"
-        android:viewportWidth="600" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:name="background">
-        <path
-                android:fillColor="#003151"
-                android:pathData="M0,0 h600 v600 h-600 z"/>
-    </group>
+    <item android:drawable="@android:color/background_light"/>
 
-    <group android:name="outline">
-        <path android:fillColor="#00000000" android:pathData="M0,0 l600,0"
-              android:strokeColor="@color/colorPrimary" android:strokeWidth="20"/>
-        <path android:fillColor="#00000000" android:pathData="M600,0 l0,600"
-              android:strokeColor="@color/colorPrimary" android:strokeWidth="20"/>
-        <path android:fillColor="#00000000" android:pathData="M600,600 l-600,0"
-              android:strokeColor="@color/colorPrimary" android:strokeWidth="20"/>
-        <path android:fillColor="#00000000" android:pathData="M0,600 l0,-600"
-              android:strokeColor="@color/colorPrimary" android:strokeWidth="20"/>
-    </group>
-</vector>
+    <item>
+        <bitmap
+                android:src="@drawable/splash_screen_logo"
+                android:gravity="center"/>
+    </item>
+</layer-list>
