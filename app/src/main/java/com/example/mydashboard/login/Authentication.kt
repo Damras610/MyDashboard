@@ -1,4 +1,4 @@
-package com.example.mydashboard.model
+package com.example.mydashboard.login
 
 enum class AuthenticationStatus {
     UNAUTHENTICATED,

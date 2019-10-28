@@ -13,8 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
-import com.example.mydashboard.model.AuthenticationError
-import com.example.mydashboard.model.AuthenticationStatus
 
 
 class LoginFragment : Fragment() {
@@ -83,11 +81,6 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.GONE
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.VISIBLE
     }
 
     private fun showErrorMessage(authenticationError: AuthenticationError) {

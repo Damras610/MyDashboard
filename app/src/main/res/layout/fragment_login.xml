@@ -93,7 +93,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/login_sign_in_button"
-                android:layout_gravity="center"
                 style="@style/AppTheme.ButtonAccent"/>
 
         <Space
@@ -103,7 +102,7 @@
         <Button
                 android:text="@string/sign_on"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/login_sign_on_button"
                 style="@style/AppTheme.ButtonPrimary"/>
 

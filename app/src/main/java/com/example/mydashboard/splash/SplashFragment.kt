@@ -56,9 +56,4 @@ class SplashFragment: Fragment() {
         super.onStart()
         viewModel.startTimer()
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.VISIBLE
-    }
 }

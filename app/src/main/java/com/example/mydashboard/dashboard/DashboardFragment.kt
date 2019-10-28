@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
+import com.example.mydashboard.login.AuthenticationStatus
 import com.example.mydashboard.login.LoginViewModel
-import com.example.mydashboard.model.AuthenticationStatus
 
 
 class DashboardFragment : Fragment() {
@@ -54,8 +55,15 @@ class DashboardFragment : Fragment() {
         })
     }
 
+    override fun onResume() {
+        super.onResume()
+        requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.VISIBLE
+    }
+
     // TODO Remove this function
     private fun showWelcomeMessage(username: String) {
         welcomeTextView.append(" $username")
     }
+
+
 }

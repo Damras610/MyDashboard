@@ -2,9 +2,6 @@ package com.example.mydashboard.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mydashboard.model.Authentication
-import com.example.mydashboard.model.AuthenticationError
-import com.example.mydashboard.model.AuthenticationStatus
 
 class LoginViewModel : ViewModel() {
 
@@ -12,15 +9,24 @@ class LoginViewModel : ViewModel() {
     val authenticationError = MutableLiveData<AuthenticationError>()
 
     init {
-        authentication.value = Authentication(AuthenticationStatus.UNAUTHENTICATED, "")
+        authentication.value = Authentication(
+            AuthenticationStatus.UNAUTHENTICATED,
+            ""
+        )
         authenticationError.value = AuthenticationError.NO_ERROR
     }
 
     fun authenticate(username: String, password: String) {
         if (validateCredentials(username, password)) {
-            authentication.value = Authentication(AuthenticationStatus.AUTHENTICATED, username)
+            authentication.value = Authentication(
+                AuthenticationStatus.AUTHENTICATED,
+                username
+            )
         } else {
-            authentication.value = Authentication(AuthenticationStatus.UNAUTHENTICATED, "")
+            authentication.value = Authentication(
+                AuthenticationStatus.UNAUTHENTICATED,
+                ""
+            )
         }
     }
 
