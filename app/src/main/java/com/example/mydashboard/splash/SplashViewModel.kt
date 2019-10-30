@@ -3,8 +3,9 @@ package com.example.mydashboard.splash
 import android.os.CountDownTimer
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class SplashViewModel : ViewModel() {
+class SplashViewModel @Inject constructor() : ViewModel() {
 
     val splashOver = MutableLiveData<Boolean>()
 

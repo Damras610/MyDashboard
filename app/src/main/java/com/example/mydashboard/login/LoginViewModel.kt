@@ -2,17 +2,16 @@ package com.example.mydashboard.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel @Inject constructor() : ViewModel() {
 
+    // Data
     val authentication = MutableLiveData<Authentication>()
     val authenticationError = MutableLiveData<AuthenticationError>()
 
     init {
-        authentication.value = Authentication(
-            AuthenticationStatus.UNAUTHENTICATED,
-            ""
-        )
+        authentication.value = Authentication(AuthenticationStatus.UNAUTHENTICATED,"")
         authenticationError.value = AuthenticationError.NO_ERROR
     }
 

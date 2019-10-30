@@ -1,12 +1,22 @@
 package com.example.mydashboard.model.user
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(indices = [Index(value = ["username"], unique = true)])
 data class User (
-    @PrimaryKey private val id: Int,
-    private val username: String,
-    private val password: String,
-    private val email: String = ""
+    @PrimaryKey(autoGenerate = true)
+    val id: Long,
+    val username: String,
+    val password: String,
+    @ColumnInfo(defaultValue = "")
+    val email: String
+)
+
+data class UserInfo(
+    val username: String,
+    val password: String,
+    val email: String
 )

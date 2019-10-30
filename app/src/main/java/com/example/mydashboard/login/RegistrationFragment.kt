@@ -6,16 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 
 class RegistrationFragment : Fragment() {
 
     // View models
-    private lateinit var registrationViewModel: RegistrationViewModel
+    @Inject
+    lateinit var loginViewModel: LoginViewModel
+    @Inject
+    lateinit var registrationViewModel: RegistrationViewModel
 
     // Views
     private lateinit var usernameEditText: EditText
@@ -23,6 +27,11 @@ class RegistrationFragment : Fragment() {
     private lateinit var emailEditText: EditText
     private lateinit var signOnButton: Button
     private lateinit var backToLoginScreenButton: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        AndroidSupportInjection.inject(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_registration, container, false)
@@ -40,9 +49,14 @@ class RegistrationFragment : Fragment() {
         signOnButton = view.findViewById(R.id.registration_sign_on_button)
         backToLoginScreenButton = view.findViewById(R.id.registration_back_to_login)
 
+
+
         // Init onClick listener
         signOnButton.setOnClickListener {
-
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            val email = emailEditText.text.toString()
+            registrationViewModel.registerAccount(username, password, email)
         }
 
         backToLoginScreenButton.setOnClickListener {
@@ -53,7 +67,7 @@ class RegistrationFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
     }
 
 }

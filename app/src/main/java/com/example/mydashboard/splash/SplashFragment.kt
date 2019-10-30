@@ -5,24 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 class SplashFragment: Fragment() {
 
-    private lateinit var viewModel: SplashViewModel
+    @Inject
+    lateinit var viewModel: SplashViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Get the ViewModel
-        viewModel = requireActivity().run {
-            ViewModelProviders.of(this)[SplashViewModel::class.java]
-        }
+        AndroidSupportInjection.inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,7 +46,7 @@ class SplashFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().findViewById<Toolbar>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
     }
 
     override fun onStart() {

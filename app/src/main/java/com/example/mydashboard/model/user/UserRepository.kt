@@ -1,8 +1,19 @@
 package com.example.mydashboard.model.user
 
-class UserRepository {
+import javax.inject.Inject
+import javax.inject.Singleton
 
-    fun getUser(username: String): User = TODO()
+@Singleton
+class UserRepository @Inject constructor(
+    private val userDao: UserDao
+) {
 
-    fun saveUser(username: String, password: String, email: String = ""): User = TODO()
+    fun getUser(username: String): User {
+        return userDao.getUserByUsername(username)
+    }
+
+    fun saveUser(username: String, password: String, email: String = ""): Boolean {
+        val insertSucceeded = userDao.insertUser(UserInfo(username, password, email))
+        return (insertSucceeded != -1L)
+    }
 }
