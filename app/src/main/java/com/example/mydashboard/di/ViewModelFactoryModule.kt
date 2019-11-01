@@ -2,6 +2,7 @@ package com.example.mydashboard.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.mydashboard.di.viewmodel.DashboardModule
 import com.example.mydashboard.di.viewmodel.LoginModule
 import com.example.mydashboard.di.viewmodel.RegistrationModule
 import com.example.mydashboard.di.viewmodel.SplashModule
@@ -13,7 +14,8 @@ import javax.inject.Singleton
 @Module(includes = [
     SplashModule::class,
     LoginModule::class,
-    RegistrationModule::class
+    RegistrationModule::class,
+    DashboardModule::class
 ])
 class ViewModelFactoryModule {
 

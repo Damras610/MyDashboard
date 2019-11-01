@@ -3,6 +3,7 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.mydashboard.login.LoginUserData
 import com.example.mydashboard.login.RegistrationFragment
 import com.example.mydashboard.login.RegistrationViewModel
 import com.example.mydashboard.model.user.UserRepository
@@ -35,8 +36,8 @@ abstract class RegistrationModule {
         @Provides
         @IntoMap
         @ViewModelKey(RegistrationViewModel::class)
-        fun provideRegistrationViewModel(userRepository: UserRepository) : ViewModel {
-            return RegistrationViewModel(userRepository)
+        fun provideRegistrationViewModel(loginUserData: LoginUserData, userRepository: UserRepository) : ViewModel {
+            return RegistrationViewModel(loginUserData, userRepository)
         }
     }
 }

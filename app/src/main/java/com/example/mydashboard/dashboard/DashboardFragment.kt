@@ -9,17 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
-import com.example.mydashboard.login.AuthenticationStatus
-import com.example.mydashboard.login.LoginViewModel
+import com.example.mydashboard.login.AuthenticationState
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
 class DashboardFragment : Fragment() {
 
-    // ViewModels
+    // ViewModel
     @Inject
-    lateinit var loginViewModel: LoginViewModel
+    lateinit var viewModel : DashboardViewModel
 
     // Views
     private lateinit var welcomeTextView: TextView
@@ -42,12 +41,13 @@ class DashboardFragment : Fragment() {
         welcomeTextView = view.findViewById(R.id.welcome_tv)
 
         // Observe models
-        loginViewModel.authentication.observe(this, Observer {authentication ->
-            when(authentication.status) {
+        viewModel.loginUserData.authState.observe(this, Observer {authState ->
+            when(authState) {
                 // Navigate to the splash fragment if the user is not connected
-                AuthenticationStatus.UNAUTHENTICATED -> navController.navigate(R.id.action_dashboardFragment_to_splashFragment)
+                AuthenticationState.UNAUTHENTICATED -> navController.navigate(R.id.action_dashboardFragment_to_splashFragment)
                 // TODO Implement widgets
-                AuthenticationStatus.AUTHENTICATED -> showWelcomeMessage(authentication.username)
+                AuthenticationState.AUTHENTICATED -> showWelcomeMessage(viewModel.loginUserData.username.value)
+                else -> {}
             }
         })
     }
@@ -58,9 +58,8 @@ class DashboardFragment : Fragment() {
     }
 
     // TODO Remove this function
-    private fun showWelcomeMessage(username: String) {
+    private fun showWelcomeMessage(username: String?) {
+        welcomeTextView.text = "Hello"
         welcomeTextView.append(" $username")
     }
-
-
 }

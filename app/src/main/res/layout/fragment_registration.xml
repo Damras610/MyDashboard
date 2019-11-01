@@ -47,6 +47,7 @@
                 android:layout_height="32dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/registration_username_editlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true">
@@ -58,12 +59,12 @@
                     android:hint="@string/username"
                     android:autofillHints="username"
                     android:ems="10"
-                    android:id="@+id/registration_username_edit"
                     android:drawableStart="@drawable/selector_account_ic"
                     android:drawablePadding="8dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/registration_password_editlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
@@ -76,13 +77,13 @@
                     android:hint="@string/password"
                     android:autofillHints="password"
                     android:ems="10"
-                    android:id="@+id/registration_password_edit"
                     android:drawableStart="@drawable/selector_password_ic"
                     android:drawablePadding="8dp"
                     app:passwordToggleEnabled="true"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/registration_email_editlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
@@ -95,7 +96,6 @@
                     android:hint="@string/email"
                     android:autofillHints="emailAddress"
                     android:ems="10"
-                    android:id="@+id/registration_email_edit"
                     android:drawableStart="@drawable/selector_email_ic"
                     android:drawablePadding="8dp"/>
         </com.google.android.material.textfield.TextInputLayout>

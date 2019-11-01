@@ -14,6 +14,8 @@
     <string name="sign_on_to">Créez votre propre</string>
     <string name="invalid_username">Nom d\'utilisateur invalide</string>
     <string name="invalid_password">Mot de passe invalide</string>
+    <string name="invalid_email">Email invalide</string>
+    <string name="already_existing_username">Nom d\'utilisateur déjà existant</string>
     <string name="optional_field">*Optionel</string>
 
 </resources>

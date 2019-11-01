@@ -5,26 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
+import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
 class RegistrationFragment : Fragment() {
 
-    // View models
+    // ViewModel
     @Inject
-    lateinit var loginViewModel: LoginViewModel
-    @Inject
-    lateinit var registrationViewModel: RegistrationViewModel
+    lateinit var viewModel: RegistrationViewModel
 
     // Views
-    private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var emailEditText: EditText
+    private lateinit var usernameEditText: TextInputLayout
+    private lateinit var passwordEditText: TextInputLayout
+    private lateinit var emailEditText: TextInputLayout
     private lateinit var signOnButton: Button
     private lateinit var backToLoginScreenButton: Button
 
@@ -43,20 +42,27 @@ class RegistrationFragment : Fragment() {
         val navController = findNavController()
 
         // Init views
-        usernameEditText = view.findViewById(R.id.registration_username_edit)
-        passwordEditText = view.findViewById(R.id.registration_password_edit)
-        emailEditText = view.findViewById(R.id.registration_email_edit)
+        usernameEditText = view.findViewById(R.id.registration_username_editlayout)
+        passwordEditText = view.findViewById(R.id.registration_password_editlayout)
+        emailEditText = view.findViewById(R.id.registration_email_editlayout)
         signOnButton = view.findViewById(R.id.registration_sign_on_button)
         backToLoginScreenButton = view.findViewById(R.id.registration_back_to_login)
 
-
+        // Observe models
+        viewModel.regisState.observe(this, Observer {regisState ->
+            when (regisState) {
+                RegistrationViewModel.RegistrationState.REGISTERED -> navController.popBackStack(R.id.dashboardFragment,false)
+                RegistrationViewModel.RegistrationState.REGISTRATION_FAILED -> showErrorMessage()
+                else -> {}
+            }
+        })
 
         // Init onClick listener
         signOnButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            val email = emailEditText.text.toString()
-            registrationViewModel.registerAccount(username, password, email)
+            val username = usernameEditText.editText?.text.toString()
+            val password = passwordEditText.editText?.text.toString()
+            val email = emailEditText.editText?.text.toString()
+            viewModel.registerAccount(username, password, email)
         }
 
         backToLoginScreenButton.setOnClickListener {
@@ -69,5 +75,38 @@ class RegistrationFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
     }
+
+    private fun showErrorMessage() {
+        val regisErr = viewModel.regisError
+        when(regisErr) {
+            RegistrationViewModel.RegistrationError.INVALID_USERNAME -> run {
+                usernameEditText.error = getString(R.string.invalid_username)
+                passwordEditText.error = null
+                emailEditText.error = null
+            }
+            RegistrationViewModel.RegistrationError.ALREADY_USED_USERNAME -> run {
+                usernameEditText.error = getString(R.string.already_existing_username)
+                passwordEditText.error = null
+                emailEditText.error = null
+            }
+            RegistrationViewModel.RegistrationError.INVALID_PASSWORD -> run {
+                usernameEditText.error = null
+                passwordEditText.error = getString(R.string.invalid_password)
+                emailEditText.error = null
+            }
+            RegistrationViewModel.RegistrationError.INVALID_EMAIL -> run {
+                usernameEditText.error = null
+                passwordEditText.error = null
+                emailEditText.error = getString(R.string.invalid_email)
+            }
+
+            RegistrationViewModel.RegistrationError.NO_ERROR -> run {
+                usernameEditText.error = null
+                passwordEditText.error = null
+                emailEditText.error = null
+            }
+        }
+    }
+
 
 }

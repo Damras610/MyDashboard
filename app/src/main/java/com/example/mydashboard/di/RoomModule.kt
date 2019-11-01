@@ -15,7 +15,9 @@ class RoomModule {
     @Singleton
     @Provides
     fun provideAppDatabase(context: Context) : AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, "Dashboard.db").build()
+        return Room.databaseBuilder(context, AppDatabase::class.java, "Dashboard.db")
+            .allowMainThreadQueries() // TODO To remove
+            .build()
     }
 
     @Singleton
