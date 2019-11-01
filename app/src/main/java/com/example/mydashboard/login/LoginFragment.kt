@@ -79,21 +79,31 @@ class LoginFragment : Fragment() {
     }
 
     private fun showErrorMessage() {
-        val authErr = viewModel.authError
-        when(authErr) {
+        resetErrorMessage()
+        when(viewModel.authError) {
+            LoginViewModel.AuthenticationError.UNKNOWN_USERNAME -> run {
+                usernameEditText.error = getString(R.string.unknown_username)
+                usernameEditText.requestFocus()
+            }
+            LoginViewModel.AuthenticationError.WRONG_PASSWORD -> run {
+                passwordEditText.error = getString(R.string.wrong_password)
+                passwordEditText.requestFocus()
+        }
             LoginViewModel.AuthenticationError.INVALID_USERNAME -> run {
                 usernameEditText.error = getString(R.string.invalid_username)
-                passwordEditText.error = null
+                usernameEditText.requestFocus()
             }
             LoginViewModel.AuthenticationError.INVALID_PASSWORD -> run {
-                usernameEditText.error = null
                 passwordEditText.error = getString(R.string.invalid_password)
+                passwordEditText.requestFocus()
             }
-            LoginViewModel.AuthenticationError.NO_ERROR -> run {
-                usernameEditText.error = null
-                passwordEditText.error = null
-            }
+            LoginViewModel.AuthenticationError.NO_ERROR -> {}
         }
+    }
+
+    private fun resetErrorMessage() {
+        usernameEditText.error = null
+        passwordEditText.error = null
     }
 
 

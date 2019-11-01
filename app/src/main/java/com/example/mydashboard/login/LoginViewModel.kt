@@ -2,7 +2,6 @@ package com.example.mydashboard.login
 
 import androidx.lifecycle.ViewModel
 import com.example.mydashboard.model.user.UserRepository
-import timber.log.Timber
 import java.security.MessageDigest
 import javax.inject.Inject
 
@@ -15,7 +14,9 @@ class LoginViewModel @Inject constructor(
     enum class AuthenticationError {
         NO_ERROR,
         INVALID_USERNAME,
-        INVALID_PASSWORD
+        INVALID_PASSWORD,
+        UNKNOWN_USERNAME,
+        WRONG_PASSWORD
     }
 
     // Data
@@ -26,32 +27,46 @@ class LoginViewModel @Inject constructor(
     }
 
     fun authenticate(username: String, password: String) {
-        Timber.d("PLOP")
-        if (validateCredentials(username, password)) {
-            Timber.d("Hello ICI !!")
-            loginUserData.authState.value = AuthenticationState.AUTHENTICATED
+        if (!checkUsername(username)) {
+            authError = AuthenticationError.INVALID_USERNAME
+            loginUserData.authState.value = AuthenticationState.AUTHENTICATE_FAILED
+        }
+        else if (!checkPassword(password)) {
+            authError = AuthenticationError.INVALID_PASSWORD
+            loginUserData.authState.value = AuthenticationState.AUTHENTICATE_FAILED
+        }
+        else if (validateCredentials(username, password)) {
             loginUserData.username.value = username
             authError = AuthenticationError.NO_ERROR
+            loginUserData.authState.value = AuthenticationState.AUTHENTICATED
         } else {
-            loginUserData.authState.value = AuthenticationState.AUTHENTICATE_FAILED
             loginUserData.username.value = ""
             if (validateUsername(username)) {
-                authError = AuthenticationError.INVALID_PASSWORD
+                authError = AuthenticationError.WRONG_PASSWORD
             } else {
-                authError = AuthenticationError.INVALID_USERNAME
+                authError = AuthenticationError.UNKNOWN_USERNAME
             }
+            loginUserData.authState.value = AuthenticationState.AUTHENTICATE_FAILED
         }
     }
 
     private fun validateCredentials(username: String, password: String): Boolean {
         val hashedPassword = MessageDigest.getInstance("SHA-1").digest(password.toByteArray()).toString()
         val user = userRepository.getUserByCredential(username, hashedPassword)
-        return (true)
+        return (user != null)
     }
 
     private fun validateUsername(username: String) : Boolean {
         val user = userRepository.getUser(username)
-        return (true)
+        return (user != null)
+    }
+
+    private fun checkUsername(username: String) : Boolean {
+        return (username.length >= 5)
+    }
+
+    private fun checkPassword(password: String) : Boolean {
+        return (password.length >= 5)
     }
 
 }

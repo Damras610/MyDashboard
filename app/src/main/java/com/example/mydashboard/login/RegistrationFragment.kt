@@ -77,36 +77,31 @@ class RegistrationFragment : Fragment() {
     }
 
     private fun showErrorMessage() {
-        val regisErr = viewModel.regisError
-        when(regisErr) {
+        resetErrorMessage()
+        when(viewModel.regisError) {
             RegistrationViewModel.RegistrationError.INVALID_USERNAME -> run {
                 usernameEditText.error = getString(R.string.invalid_username)
-                passwordEditText.error = null
-                emailEditText.error = null
+                usernameEditText.requestFocus()
             }
             RegistrationViewModel.RegistrationError.ALREADY_USED_USERNAME -> run {
                 usernameEditText.error = getString(R.string.already_existing_username)
-                passwordEditText.error = null
-                emailEditText.error = null
+                usernameEditText.requestFocus()
             }
             RegistrationViewModel.RegistrationError.INVALID_PASSWORD -> run {
-                usernameEditText.error = null
                 passwordEditText.error = getString(R.string.invalid_password)
-                emailEditText.error = null
+                passwordEditText.requestFocus()
             }
             RegistrationViewModel.RegistrationError.INVALID_EMAIL -> run {
-                usernameEditText.error = null
-                passwordEditText.error = null
                 emailEditText.error = getString(R.string.invalid_email)
+                emailEditText.requestFocus()
             }
-
-            RegistrationViewModel.RegistrationError.NO_ERROR -> run {
-                usernameEditText.error = null
-                passwordEditText.error = null
-                emailEditText.error = null
-            }
+            RegistrationViewModel.RegistrationError.NO_ERROR -> {}
         }
     }
 
-
+    private fun resetErrorMessage() {
+        usernameEditText.error = null
+        passwordEditText.error = null
+        emailEditText.error = null
+    }
 }

@@ -35,18 +35,44 @@ class RegistrationViewModel @Inject constructor(
     }
 
     fun registerAccount(username: String, password: String, email: String) {
-        if (saveUser(username, password, email)) {
+        if (!checkUsername(username)) {
+            regisError = RegistrationError.INVALID_USERNAME
+            regisState.value = RegistrationState.REGISTRATION_FAILED
+        }
+        else if (!checkPassword(password)) {
+            regisError = RegistrationError.INVALID_PASSWORD
+            regisState.value = RegistrationState.REGISTRATION_FAILED
+        }
+        else if (!checkEmail(email)) {
+            regisError = RegistrationError.INVALID_EMAIL
+            regisState.value = RegistrationState.REGISTRATION_FAILED
+        }
+        else if (saveNewUser(username, password, email)) {
             regisState.value = RegistrationState.REGISTERED
-            loginUserData.authState.value = AuthenticationState.AUTHENTICATED
             loginUserData.username.value = username
+            loginUserData.authState.value = AuthenticationState.AUTHENTICATED
         } else {
             regisError = RegistrationError.ALREADY_USED_USERNAME
+            regisState.value = RegistrationState.REGISTRATION_FAILED
         }
     }
 
-    private fun saveUser(username: String, password: String, email: String) : Boolean {
+    private fun saveNewUser(username: String, password: String, email: String) : Boolean {
         val hashedPassword = MessageDigest.getInstance("SHA-1").digest(password.toByteArray()).toString()
-        val user = userRepository.getUserByCredential(username, hashedPassword)
-        return (true)
+        val userId = userRepository.saveNewUser(username, hashedPassword, email)
+        return (userId != -1L)
     }
+
+    private fun checkUsername(username: String) : Boolean {
+        return (username.length >= 5)
+    }
+
+    private fun checkPassword(password: String) : Boolean {
+        return (password.length >= 5)
+    }
+
+    private fun checkEmail(email: String) : Boolean {
+        return email.isEmpty() || email.matches(Regex("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$"))
+    }
+
 }

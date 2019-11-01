@@ -8,16 +8,20 @@ class UserRepository @Inject constructor(
     private val userDao: UserDao
 ) {
 
-    fun getUser(username: String): User {
+    fun getUser(username: String): User? {
         return userDao.getUserByUsername(username)
     }
 
-    fun getUserByCredential(username: String, password: String) : User {
+    fun getUserByCredential(username: String, password: String) : User? {
         return userDao.getUserByCredentials(username, password)
     }
 
-    fun saveUser(username: String, password: String, email: String = ""): Boolean {
-        val insertSucceeded = userDao.insertUser(UserInfo(username, password, email))
-        return (insertSucceeded != -1L)
+    fun saveNewUser(username: String, password: String, email: String = ""): Long {
+        var insertedId : Long = -1L
+        try {
+            insertedId = (userDao.insertUser(UserInfo(username, password, email)))
+        } finally {
+            return (insertedId)
+        }
     }
 }

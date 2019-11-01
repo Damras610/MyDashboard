@@ -31,7 +31,7 @@ class SplashFragment: Fragment() {
 
         val navController = findNavController()
 
-        // Go to the login screen once the timer is
+        // Go to the login screen once the timer is over
         viewModel.splashOver.observe(this, Observer<Boolean> {splashOver ->
             if (splashOver == true) {
                 navController.navigate(R.id.action_splashFragment_to_loginFragment)
