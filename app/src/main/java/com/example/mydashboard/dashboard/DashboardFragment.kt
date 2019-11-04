@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
-import com.example.mydashboard.login.AuthenticationState
+import com.example.mydashboard.authentication.AuthenticationState
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -46,7 +46,7 @@ class DashboardFragment : Fragment() {
                 // Navigate to the splash fragment if the user is not connected
                 AuthenticationState.UNAUTHENTICATED -> navController.navigate(R.id.action_dashboardFragment_to_splashFragment)
                 // TODO Implement widgets
-                AuthenticationState.AUTHENTICATED -> showWelcomeMessage(viewModel.loginUserData.username.value)
+                AuthenticationState.AUTHENTICATED -> showWelcomeMessage()
                 else -> {}
             }
         })
@@ -58,8 +58,14 @@ class DashboardFragment : Fragment() {
     }
 
     // TODO Remove this function
-    private fun showWelcomeMessage(username: String?) {
+    private fun showWelcomeMessage() {
+        viewModel.loadWidgets()
         welcomeTextView.text = "Hello"
-        welcomeTextView.append(" $username")
+        welcomeTextView.append(" ${viewModel.loginUserData.username.value}")
+        welcomeTextView.append(". Your widgets are ")
+        viewModel.widgets.forEach {
+            welcomeTextView.append(it.toString())
+            welcomeTextView.append(", ")
+        }
     }
 }

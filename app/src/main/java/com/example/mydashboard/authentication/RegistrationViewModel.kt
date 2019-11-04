@@ -1,4 +1,4 @@
-package com.example.mydashboard.login
+package com.example.mydashboard.authentication
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -58,7 +58,7 @@ class RegistrationViewModel @Inject constructor(
     }
 
     private fun saveNewUser(username: String, password: String, email: String) : Boolean {
-        val hashedPassword = MessageDigest.getInstance("SHA-1").digest(password.toByteArray()).toString()
+        val hashedPassword = String(MessageDigest.getInstance("SHA-256").digest(password.toByteArray()))
         val userId = userRepository.saveNewUser(username, hashedPassword, email)
         return (userId != -1L)
     }

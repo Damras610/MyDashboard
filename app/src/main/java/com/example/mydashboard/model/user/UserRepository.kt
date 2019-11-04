@@ -19,7 +19,7 @@ class UserRepository @Inject constructor(
     fun saveNewUser(username: String, password: String, email: String = ""): Long {
         var insertedId : Long = -1L
         try {
-            insertedId = (userDao.insertUser(UserInfo(username, password, email)))
+            insertedId = userDao.insertUser(User(0, username, password, email))
         } finally {
             return (insertedId)
         }

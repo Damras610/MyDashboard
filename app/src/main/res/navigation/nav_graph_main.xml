@@ -34,7 +34,7 @@
     </fragment>
     <fragment
             android:id="@+id/loginFragment"
-            android:name="com.example.mydashboard.login.LoginFragment"
+            android:name="com.example.mydashboard.authentication.LoginFragment"
             android:label="Login"
             tools:layout="@layout/fragment_login">
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
             android:id="@+id/registrationFragment"
-            android:name="com.example.mydashboard.login.RegistrationFragment"
+            android:name="com.example.mydashboard.authentication.RegistrationFragment"
             android:label="fragment_registration"
             tools:layout="@layout/fragment_registration"/>
 </navigation>

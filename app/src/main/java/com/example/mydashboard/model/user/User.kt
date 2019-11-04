@@ -14,9 +14,3 @@ data class User (
     @ColumnInfo(defaultValue = "")
     val email: String
 )
-
-data class UserInfo(
-    val username: String,
-    val password: String,
-    val email: String
-)

@@ -1,4 +1,4 @@
-package com.example.mydashboard.login
+package com.example.mydashboard.authentication
 
 import androidx.lifecycle.MutableLiveData
 

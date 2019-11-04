@@ -1,4 +1,4 @@
-package com.example.mydashboard.login
+package com.example.mydashboard.authentication
 
 import androidx.lifecycle.ViewModel
 import com.example.mydashboard.model.user.UserRepository
@@ -51,7 +51,7 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun validateCredentials(username: String, password: String): Boolean {
-        val hashedPassword = MessageDigest.getInstance("SHA-1").digest(password.toByteArray()).toString()
+        val hashedPassword = String(MessageDigest.getInstance("SHA-256").digest(password.toByteArray()))
         val user = userRepository.getUserByCredential(username, hashedPassword)
         return (user != null)
     }

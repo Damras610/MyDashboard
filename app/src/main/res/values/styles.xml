@@ -20,11 +20,11 @@
         <item name="android:paddingEnd">@dimen/button_padding_end</item>
     </style>
     <style name="AppTheme.ButtonPrimary" parent="AppTheme.Button">
-        <item name="android:background">@drawable/shape_round_primary</item>
+        <item name="android:background">@drawable/selector_button_primary</item>
         <item name="android:textColor">@color/colorTextOnPrimary</item>
     </style>
     <style name="AppTheme.ButtonAccent" parent="AppTheme.Button">
-        <item name="android:background">@drawable/shape_round_accent</item>
+        <item name="android:background">@drawable/selector_button_accent</item>
         <item name="android:textColor">@color/colorTextOnAccent</item>
     </style>
 

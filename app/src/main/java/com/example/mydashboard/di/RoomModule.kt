@@ -5,6 +5,8 @@ import androidx.room.Room
 import com.example.mydashboard.model.AppDatabase
 import com.example.mydashboard.model.user.UserDao
 import com.example.mydashboard.model.user.UserRepository
+import com.example.mydashboard.model.widget.WidgetDao
+import com.example.mydashboard.model.widget.WidgetRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -30,6 +32,18 @@ class RoomModule {
     @Provides
     fun provideUserRepository(userDao: UserDao) : UserRepository {
         return UserRepository(userDao)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWidgetDao(appDatabase: AppDatabase) : WidgetDao {
+        return appDatabase.widgetDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideWidgetRepository(userDao: UserDao, widgetDao: WidgetDao) : WidgetRepository {
+        return WidgetRepository(userDao, widgetDao)
     }
 
 }

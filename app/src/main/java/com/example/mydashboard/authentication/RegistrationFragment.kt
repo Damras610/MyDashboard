@@ -1,4 +1,4 @@
-package com.example.mydashboard.login
+package com.example.mydashboard.authentication
 
 import android.os.Bundle
 import android.view.LayoutInflater

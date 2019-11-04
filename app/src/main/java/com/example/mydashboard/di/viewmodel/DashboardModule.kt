@@ -3,9 +3,10 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.mydashboard.authentication.LoginUserData
 import com.example.mydashboard.dashboard.DashboardFragment
 import com.example.mydashboard.dashboard.DashboardViewModel
-import com.example.mydashboard.login.LoginUserData
+import com.example.mydashboard.model.widget.WidgetRepository
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -36,8 +37,8 @@ abstract class DashboardModule {
         @Provides
         @IntoMap
         @ViewModelKey(DashboardViewModel::class)
-        fun provideDashboardViewModel(loginUserData: LoginUserData) : ViewModel {
-            return DashboardViewModel(loginUserData)
+        fun provideDashboardViewModel(loginUserData: LoginUserData, widgetRepository: WidgetRepository) : ViewModel {
+            return DashboardViewModel(loginUserData, widgetRepository)
         }
     }
 }
