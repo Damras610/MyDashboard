@@ -1,130 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
-        <variable name="form_data" type="com.example.mydashboard.authentication.LoginFormData" />
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".authentication.LoginFragment"
+        android:id="@+id/constraintLayout">
+
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".authentication.LoginFragment"
-            android:id="@+id/constraintLayout">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <ScrollView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="@dimen/login_fragment_vertical_margin"
+                android:layout_marginEnd="@dimen/login_fragment_vertical_margin"
+                android:layout_gravity="center">
 
-            <LinearLayout
-                    android:orientation="vertical"
+            <TextView
+                    android:text="@string/sign_in_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login_toptext_tv"
+                    style="@style/AppTheme.TitleTextView"
+                    android:drawableBottom="@drawable/im_logo_with_text"
+                    android:contentDescription="@string/cd_splash_screen_logo"/>
+
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_username_editlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginStart="@dimen/login_fragment_vertical_margin"
-                    android:layout_marginEnd="@dimen/login_fragment_vertical_margin"
-                    android:layout_gravity="center">
+                    app:errorEnabled="true"
+                    android:orientation="vertical">
 
-                <TextView
-                        android:text="@string/sign_in_to"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/login_toptext_tv"
-                        style="@style/AppTheme.TitleTextView"
-                        android:drawableBottom="@drawable/im_logo_with_text"
-                        android:contentDescription="@string/cd_splash_screen_logo"/>
-
-                <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="32dp"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/login_username_editlayout"
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_username_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        android:orientation="vertical">
+                        android:inputType="textPersonName"
+                        android:hint="@string/username"
+                        android:autofillHints="username"
+                        android:ems="10"
+                        android:drawableStart="@drawable/selector_account_ic"
+                        android:drawablePadding="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/login_username_edit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName"
-                            android:hint="@string/username"
-                            android:autofillHints="username"
-                            android:ems="10"
-                            android:drawableStart="@drawable/selector_account_ic"
-                            android:drawablePadding="8dp"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/login_password_editlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true">
 
-                <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/login_password_editlayout"
+                <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_password_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:errorEnabled="true"
-                        app:passwordToggleEnabled="true">
+                        android:inputType="textPassword"
+                        android:hint="@string/password"
+                        android:autofillHints="password"
+                        android:ems="10"
+                        android:drawableStart="@drawable/selector_password_ic"
+                        android:drawablePadding="8dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/login_password_edit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPassword"
-                            android:hint="@string/password"
-                            android:autofillHints="password"
-                            android:ems="10"
-                            android:drawableStart="@drawable/selector_password_ic"
-                            android:drawablePadding="8dp"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
 
-                <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp"/>
+            <Button
+                    android:text="@string/sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login_sign_in_button"
+                    style="@style/AppTheme.ButtonAccent"/>
 
-                <Button
-                        android:text="@string/sign_in"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/login_sign_in_button"
-                        style="@style/AppTheme.ButtonAccent"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"/>
 
-                <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp"/>
+            <Button
+                    android:text="@string/sign_on"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/login_sign_on_button"
+                    style="@style/AppTheme.ButtonPrimary"/>
 
-                <Button
-                        android:text="@string/sign_on"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/login_sign_on_button"
-                        style="@style/AppTheme.ButtonPrimary"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
 
-                <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="32dp"/>
+            <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    />
 
-                <View
-                        android:id="@+id/divider"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorPrimaryDark"
-                        />
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
 
-                <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="32dp"/>
+            <com.google.android.gms.common.SignInButton
+                    android:id="@+id/login_google_sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                <com.google.android.gms.common.SignInButton
-                        android:id="@+id/login_google_sign_in_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
 
-            </LinearLayout>
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:elevation="1dp"
+        app:cardCornerRadius="4dp"
         style="@style/Widget.MaterialComponents.CardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,20 +18,20 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView"
+                android:id="@+id/list_item_add_service_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:scaleType="centerCrop"
                 tools:srcCompat="@drawable/im_service_weather"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
+                app:layout_constraintBottom_toTopOf="@+id/list_item_add_service_name"
                 />
 
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
+                android:id="@+id/list_item_add_service_name"
+                app:layout_constraintTop_toBottomOf="@id/list_item_add_service_image"
                 android:layout_marginTop="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
@@ -41,13 +43,15 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@id/textView"
+                android:id="@+id/list_item_add_service_description"
+                app:layout_constraintTop_toBottomOf="@id/list_item_add_service_name"
                 android:layout_marginTop="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp"
                 tools:text="Get the weather in a city"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

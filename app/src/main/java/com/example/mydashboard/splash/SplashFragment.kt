@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class SplashFragment: Fragment() {
@@ -47,7 +48,7 @@ class SplashFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().toolbar.visibility = View.GONE
     }
 
     override fun onStart() {

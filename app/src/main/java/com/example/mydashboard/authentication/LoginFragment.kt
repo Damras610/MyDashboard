@@ -13,6 +13,8 @@ import com.example.mydashboard.R
 import com.example.mydashboard.authentication.logindata.AuthenticationState
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 import javax.inject.Inject
 
 
@@ -44,10 +46,10 @@ class LoginFragment : Fragment() {
         val navController = findNavController()
 
         // Init views
-        usernameEditText = view.findViewById(R.id.login_username_editlayout)
-        passwordEditText = view.findViewById(R.id.login_password_editlayout)
-        signInButton = view.findViewById(R.id.login_sign_in_button)
-        signOnButton = view.findViewById(R.id.login_sign_on_button)
+        usernameEditText = view.login_username_editlayout
+        passwordEditText = view.login_password_editlayout
+        signInButton = view.login_sign_in_button
+        signOnButton = view.login_sign_on_button
 
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer { authState ->
@@ -77,7 +79,7 @@ class LoginFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().toolbar.visibility = View.GONE
     }
 
     private fun showErrorMessage() {

@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_registration.view.*
 import javax.inject.Inject
 
 
@@ -43,11 +45,11 @@ class RegistrationFragment : Fragment() {
         val navController = findNavController()
 
         // Init views
-        usernameEditText = view.findViewById(R.id.registration_username_editlayout)
-        passwordEditText = view.findViewById(R.id.registration_password_editlayout)
-        emailEditText = view.findViewById(R.id.registration_email_editlayout)
-        signOnButton = view.findViewById(R.id.registration_sign_on_button)
-        backToLoginScreenButton = view.findViewById(R.id.registration_back_to_login)
+        usernameEditText = view.registration_username_editlayout
+        passwordEditText = view.registration_password_editlayout
+        emailEditText = view.registration_email_editlayout
+        signOnButton = view.registration_sign_on_button
+        backToLoginScreenButton = view.registration_back_to_login
 
         // Observe models
         viewModel.regisState.observe(this, Observer {regisState ->
@@ -74,7 +76,7 @@ class RegistrationFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().toolbar.visibility = View.GONE
     }
 
     private fun showErrorMessage() {

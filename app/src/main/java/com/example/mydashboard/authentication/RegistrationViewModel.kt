@@ -30,7 +30,6 @@ class RegistrationViewModel @Inject constructor(
     // Data
     val regisState : MutableLiveData<RegistrationState>
     var regisError : RegistrationError
-
     init {
         regisState = MutableLiveData(RegistrationState.UNREGISTERED)
         regisError = RegistrationError.NO_ERROR

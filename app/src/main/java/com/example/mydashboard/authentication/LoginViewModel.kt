@@ -23,7 +23,6 @@ class LoginViewModel @Inject constructor(
 
     // Data
     var authError : AuthenticationError
-
     init {
         authError = AuthenticationError.NO_ERROR
     }

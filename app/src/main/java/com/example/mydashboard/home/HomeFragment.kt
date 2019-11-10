@@ -12,6 +12,8 @@ import com.example.mydashboard.R
 import com.example.mydashboard.authentication.logindata.AuthenticationState
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 import javax.inject.Inject
 
 
@@ -41,12 +43,12 @@ class HomeFragment : Fragment() {
         val navController = findNavController()
 
         // Init the views
-        noWidgetTextView = view.findViewById(R.id.home_no_widget_tv)
-        addWidgetFab = view.findViewById(R.id.home_add_widget_fab)
+        noWidgetTextView = view.home_no_widget_tv
+        addWidgetFab = view.home_add_widget_fab
 
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer {authState ->
-            if(authState == AuthenticationState.UNAUTHENTICATED) {
+            if(authState != AuthenticationState.AUTHENTICATED) {
                 // Navigate to the splash fragment if the user is not connected
                 navController.navigate(R.id.action_homeFragment_to_splashFragment)
             }
@@ -68,6 +70,6 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
+        requireActivity().toolbar.visibility = View.VISIBLE
     }
 }

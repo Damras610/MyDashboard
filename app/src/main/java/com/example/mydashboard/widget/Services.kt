@@ -6,7 +6,14 @@ class Services {
 
     val all : Array<ServiceDescription>
     init {
-        all = arrayOf(OPEN_WEATHER_MAP_DESCRIPTION)
+        all = arrayOf(
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION,
+            OPEN_WEATHER_MAP_DESCRIPTION
+        )
     }
-
 }

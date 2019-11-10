@@ -14,7 +14,6 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     var widgets : MutableLiveData<Array<Widget>>
-
     init {
         widgets = MutableLiveData(emptyArray())
     }
