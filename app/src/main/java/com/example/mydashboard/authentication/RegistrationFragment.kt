@@ -33,6 +33,7 @@ class RegistrationFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 
@@ -51,7 +52,7 @@ class RegistrationFragment : Fragment() {
         // Observe models
         viewModel.regisState.observe(this, Observer {regisState ->
             when (regisState) {
-                RegistrationViewModel.RegistrationState.REGISTERED -> navController.popBackStack(R.id.dashboardFragment,false)
+                RegistrationViewModel.RegistrationState.REGISTERED -> navController.popBackStack(R.id.homeFragment,false)
                 RegistrationViewModel.RegistrationState.REGISTRATION_FAILED -> showErrorMessage()
                 else -> {}
             }

@@ -1,4 +1,4 @@
-package com.example.mydashboard.dashboard
+package com.example.mydashboard.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,19 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
-import com.example.mydashboard.authentication.AuthenticationState
+import com.example.mydashboard.authentication.logindata.AuthenticationState
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-class DashboardFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     // ViewModel
     @Inject
-    lateinit var viewModel : DashboardViewModel
+    lateinit var viewModel : HomeViewModel
 
     // Views
-    private lateinit var welcomeTextView: TextView
+    private lateinit var noWidgetTextView: TextView
+    private lateinit var addWidgetFab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,8 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,34 +41,33 @@ class DashboardFragment : Fragment() {
         val navController = findNavController()
 
         // Init the views
-        welcomeTextView = view.findViewById(R.id.welcome_tv)
+        noWidgetTextView = view.findViewById(R.id.home_no_widget_tv)
+        addWidgetFab = view.findViewById(R.id.home_add_widget_fab)
 
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer {authState ->
-            when(authState) {
+            if(authState == AuthenticationState.UNAUTHENTICATED) {
                 // Navigate to the splash fragment if the user is not connected
-                AuthenticationState.UNAUTHENTICATED -> navController.navigate(R.id.action_dashboardFragment_to_splashFragment)
-                // TODO Implement widgets
-                AuthenticationState.AUTHENTICATED -> showWelcomeMessage()
-                else -> {}
+                navController.navigate(R.id.action_homeFragment_to_splashFragment)
             }
         })
+        viewModel.widgets.observe(this, Observer { widgets ->
+            if (widgets.isEmpty()) {
+                noWidgetTextView.visibility = View.VISIBLE
+            } else {
+                noWidgetTextView.visibility = View.GONE
+                // TODO Show widgets
+            }
+        })
+
+        // Init onClick listener
+        addWidgetFab.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_addServiceFragment)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         requireActivity().findViewById<View>(R.id.toolbar)?.visibility = View.GONE
-    }
-
-    // TODO Remove this function
-    private fun showWelcomeMessage() {
-        viewModel.loadWidgets()
-        welcomeTextView.text = "Hello"
-        welcomeTextView.append(" ${viewModel.loginUserData.username.value}")
-        welcomeTextView.append(". Your widgets are ")
-        viewModel.widgets.forEach {
-            welcomeTextView.append(it.toString())
-            welcomeTextView.append(", ")
-        }
     }
 }

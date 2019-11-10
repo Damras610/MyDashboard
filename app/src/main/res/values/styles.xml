@@ -21,17 +21,16 @@
     </style>
     <style name="AppTheme.ButtonPrimary" parent="AppTheme.Button">
         <item name="android:background">@drawable/selector_button_primary</item>
-        <item name="android:textColor">@color/colorTextOnPrimary</item>
+        <item name="android:textColor">@color/colorOnPrimary</item>
     </style>
     <style name="AppTheme.ButtonAccent" parent="AppTheme.Button">
         <item name="android:background">@drawable/selector_button_accent</item>
-        <item name="android:textColor">@color/colorTextOnAccent</item>
+        <item name="android:textColor">@color/colorOnAccent</item>
     </style>
 
     <!-- TextView Styles. -->
-    <style name="AppTheme.TitleTextView" parent="Widget.AppCompat.TextView">
+    <style name="AppTheme.TitleTextView" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:fontFamily">@font/droidsans</item>
-        <item name="android:textSize">@dimen/title_text_size</item>
     </style>
 </resources>

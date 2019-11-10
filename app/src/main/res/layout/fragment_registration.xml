@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".splash.SplashFragment"
+        tools:context=".authentication.RegistrationFragment"
         android:id="@+id/constraintLayout">
 
     <ScrollView
@@ -25,26 +25,16 @@
                 android:layout_marginEnd="@dimen/login_fragment_vertical_margin"
                 android:layout_gravity="center">
 
-            <LinearLayout
-                    android:orientation="vertical"
+            <TextView
+                    android:text="@string/sign_on_to"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:id="@+id/registration_toptext_tv"
+                    style="@style/AppTheme.TitleTextView"
+                    android:drawableBottom="@drawable/im_logo_with_text"
+                    android:contentDescription="@string/cd_splash_screen_logo"/>
 
-                <TextView
-                        android:text="@string/sign_on_to"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/registration_toptext_tv"
-                        style="@style/AppTheme.TitleTextView"/>
 
-                <ImageView
-                        android:id="@+id/registration_logo_image"
-                        android:src="@drawable/im_logo_with_text"
-                        android:contentDescription="@string/cd_splash_screen_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-            </LinearLayout>
 
             <Space
                     android:layout_width="match_parent"

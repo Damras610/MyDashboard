@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.mydashboard.authentication.LoginFragment
-import com.example.mydashboard.authentication.LoginUserData
 import com.example.mydashboard.authentication.LoginViewModel
+import com.example.mydashboard.authentication.logindata.LoginUserData
 import com.example.mydashboard.model.user.UserRepository
 import dagger.Module
 import dagger.Provides

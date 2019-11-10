@@ -7,7 +7,7 @@
     <color name="colorAccentDark">#BB5700</color>
     <color name="colorAccentLight">#FFB643</color>
 
-    <color name="colorTextOnPrimary">#FFFFFF</color>
-    <color name="colorTextOnAccent">#000000</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnAccent">#000000</color>
 
 </resources>

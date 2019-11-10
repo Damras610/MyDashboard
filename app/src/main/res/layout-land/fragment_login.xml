@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".splash.SplashFragment"
+        tools:context=".authentication.LoginFragment"
         android:id="@+id/constraintLayout">
 
     <ScrollView
@@ -25,28 +25,16 @@
                 android:layout_marginEnd="@dimen/login_fragment_vertical_margin"
                 android:layout_gravity="center">
 
-            <LinearLayout
-                    android:orientation="horizontal"
+            <TextView
+                    android:text="@string/sign_in_to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    >
-
-                <TextView
-                        android:text="@string/sign_in_to"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/login_toptext_tv"
-                        style="@style/AppTheme.TitleTextView"
-                        android:layout_gravity="bottom"/>
-
-                <ImageView
-                        android:id="@+id/login_logo_image"
-                        android:src="@drawable/im_logo_with_text"
-                        android:contentDescription="@string/cd_splash_screen_logo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="-20dp"/>
-            </LinearLayout>
+                    android:id="@+id/login_toptext_tv"
+                    style="@style/AppTheme.TitleTextView"
+                    android:gravity="bottom"
+                    android:drawableEnd="@drawable/im_logo_with_text"
+                    android:drawablePadding="-20dp"
+                    android:contentDescription="@string/cd_splash_screen_logo"/>
 
             <Space
                     android:layout_width="match_parent"
@@ -114,7 +102,7 @@
 
                         <Button
                                 android:text="@string/sign_in"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/login_sign_in_button"
                                 style="@style/AppTheme.ButtonAccent"

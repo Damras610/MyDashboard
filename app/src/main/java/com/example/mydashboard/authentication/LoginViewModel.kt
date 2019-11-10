@@ -1,6 +1,8 @@
 package com.example.mydashboard.authentication
 
 import androidx.lifecycle.ViewModel
+import com.example.mydashboard.authentication.logindata.AuthenticationState
+import com.example.mydashboard.authentication.logindata.LoginUserData
 import com.example.mydashboard.model.user.UserRepository
 import java.security.MessageDigest
 import javax.inject.Inject

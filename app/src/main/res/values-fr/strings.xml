@@ -19,5 +19,11 @@
     <string name="invalid_email">Email invalide</string>
     <string name="already_existing_username">Nom d\'utilisateur déjà existant</string>
     <string name="optional_field">*Optionel</string>
+    <string name="no_widget">Appuyer sur le bouton \'+\' pour ajouter votre premier widget.</string>
+    <string name="service_weather_name">Météo</string>
+    <string name="service_weather_description">Suivez la météo d\'une ville.</string>
+    <string name="widget_weather_city_description">Récupérer toutes les informations sur la météo, la température et les données atmosphériques d\'une ville.</string>
+    <string name="widget_weather_city_name">Météo dans une ville.</string>
+    <string name="widget_weather_city_params_city_name">Ville</string>
 
 </resources>

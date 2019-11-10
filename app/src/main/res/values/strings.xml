@@ -22,7 +22,17 @@
     <string name="already_existing_username">Already existing username</string>
     <string name="optional_field">*Optional</string>
 
+    <!-- Home texts -->
+    <string name="no_widget">Use the \'+\' button to add your first widget.</string>
+
     <!-- Image view content description -->
     <string name="cd_splash_screen_logo">Dashboard app\'s logo</string>
+
+    <!-- Services -->
+    <string name="service_weather_name">Weather</string>
+    <string name="service_weather_description">Keep track of the weather in a city.</string>
+    <string name="widget_weather_city_name">Current weather in a city.</string>
+    <string name="widget_weather_city_description">Retrieve the current weather and all atmospheric and temperature data in a city.</string>
+    <string name="widget_weather_city_params_city_name">City</string>
 
 </resources>

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
+import com.example.mydashboard.authentication.logindata.AuthenticationState
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -33,6 +34,7 @@ class LoginFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
@@ -50,7 +52,7 @@ class LoginFragment : Fragment() {
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer { authState ->
             when (authState) {
-                AuthenticationState.AUTHENTICATED -> navController.popBackStack(R.id.dashboardFragment,false)
+                AuthenticationState.AUTHENTICATED -> navController.popBackStack(R.id.homeFragment,false)
                 AuthenticationState.AUTHENTICATE_FAILED -> showErrorMessage()
                 else -> {}
             }
