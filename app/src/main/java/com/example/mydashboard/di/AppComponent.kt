@@ -7,7 +7,6 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    ServicesModule::class,
     RoomModule::class,
     ViewModelFactoryModule::class
 ])

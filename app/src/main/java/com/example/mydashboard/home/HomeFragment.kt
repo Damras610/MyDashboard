@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 noWidgetTextView.visibility = View.VISIBLE
             } else {
                 noWidgetTextView.visibility = View.GONE
-                // TODO Show widgets
+                // TODO Show paramController
             }
         })
 

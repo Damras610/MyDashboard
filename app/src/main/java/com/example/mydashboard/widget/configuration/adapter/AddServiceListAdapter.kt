@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.adapter
+package com.example.mydashboard.widget.configuration.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +11,22 @@ import com.example.mydashboard.widget.ServiceDescription
 import kotlinx.android.synthetic.main.list_item_add_service.view.*
 
 class AddServiceListAdapter(
-    var dataset: Array<ServiceDescription>
+    var dataset: Array<ServiceDescription>,
+    val onItemClickListener: View.OnClickListener
 ): RecyclerView.Adapter<AddServiceListAdapter.AddServiceViewHolder>() {
 
-    class AddServiceViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val image: ImageView = view.list_item_add_service_image
-        val name: TextView = view.list_item_add_service_name
-        val description: TextView = view.list_item_add_service_description
+    inner class AddServiceViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val image: ImageView
+        val name: TextView
+        val description: TextView
+
+        init {
+            image = view.list_item_add_service_image
+            name = view.list_item_add_service_name
+            description = view.list_item_add_service_description
+            view.tag = this@AddServiceViewHolder
+            view.setOnClickListener(onItemClickListener)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddServiceViewHolder {
@@ -34,7 +43,7 @@ class AddServiceListAdapter(
         holder.image.setImageResource(dataset[position].imageResId)
         holder.name.setText(dataset[position].nameResId)
         holder.description.setText(dataset[position].descriptionResId)
-
-        // TODO Add Click Listener to widgets
     }
+
+
 }

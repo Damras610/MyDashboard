@@ -13,7 +13,7 @@ class WidgetRepository @Inject constructor(
     fun getWidgetFromUser(username: String): Array<Widget> {
         val user = userDao.getUserByUsername(username)
         if (user == null)
-            return emptyArray();
+            return emptyArray()
 
         return widgetDao.getWidgetsByUserId(user.id)
     }
@@ -21,7 +21,7 @@ class WidgetRepository @Inject constructor(
     fun addWidgetToUser(username: String, serviceName: String, widgetName: String, parameters: Map<String, String> = emptyMap()): Long {
         val user = userDao.getUserByUsername(username)
         if (user == null)
-            return (-1L);
+            return (-1L)
 
         val widget = Widget(0, user.id, serviceName, widgetName, parameters)
 

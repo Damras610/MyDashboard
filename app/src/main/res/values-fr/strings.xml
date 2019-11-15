@@ -25,5 +25,7 @@
     <string name="widget_weather_city_description">Récupérer toutes les informations sur la météo, la température et les données atmosphériques d\'une ville.</string>
     <string name="widget_weather_city_name">Météo dans une ville.</string>
     <string name="widget_weather_city_params_city_name">Ville</string>
+    <string name="cancel">Annuler</string>
+    <string name="add">Ajouter</string>
 
 </resources>

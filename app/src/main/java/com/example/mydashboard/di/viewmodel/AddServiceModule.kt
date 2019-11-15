@@ -3,9 +3,9 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.mydashboard.widget.AddServiceFragment
-import com.example.mydashboard.widget.AddServiceViewModel
-import com.example.mydashboard.widget.Services
+import com.example.mydashboard.widget.SERVICES
+import com.example.mydashboard.widget.configuration.AddServiceFragment
+import com.example.mydashboard.widget.configuration.AddServiceViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -36,8 +36,8 @@ abstract class AddServiceModule {
         @Provides
         @IntoMap
         @ViewModelKey(AddServiceViewModel::class)
-        fun provideAddServiceViewModel(services: Services) : ViewModel {
-            return AddServiceViewModel(services)
+        fun provideAddServiceViewModel() : ViewModel {
+            return AddServiceViewModel(SERVICES)
         }
     }
 }
