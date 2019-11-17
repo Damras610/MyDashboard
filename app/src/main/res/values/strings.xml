@@ -26,7 +26,7 @@
     <string name="no_widget">Use the \'+\' button to add your first widget.</string>
 
     <!-- Image view content description -->
-    <string name="cd_splash_screen_logo" translatable="false">Dashboard app\'s logo</string>
+    <string name="cd_splash_screen_logo">Dashboard app\'s logo</string>
 
     <!-- Services -->
     <string name="service_weather_name">Weather</string>
@@ -35,6 +35,10 @@
     <string name="widget_weather_city_description">Retrieve the current weather and all atmospheric and temperature data in a city.</string>
     <string name="widget_weather_city_params_city_name">City</string>
 
+    <!-- Widget configuration -->
+    <string name="widget_config_setup_widget">Set up the widget.</string>
+    <string name="widget_config_invalid_field">Invalid Field</string>
+
     <!-- General -->
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
@@ -42,5 +46,6 @@
     <!-- DB -->
     <string name="db_service_weather" translatable="false">weather</string>
     <string name="db_widget_weather_city" translatable="false">weather_city</string>
+    <string name="db_param_weather_city_city" translatable="false">weather_city_city</string>
 
 </resources>

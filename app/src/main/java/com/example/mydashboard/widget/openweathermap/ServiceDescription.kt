@@ -1,8 +1,8 @@
 package com.example.mydashboard.widget.openweathermap
 
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.ServiceDescription
-import com.example.mydashboard.widget.WidgetDescription
+import com.example.mydashboard.widget.description.ServiceDescription
+import com.example.mydashboard.widget.description.WidgetDescription
 
 val SERVICE_DESCRIPTION = ServiceDescription(
     nameResId = R.string.service_weather_name,

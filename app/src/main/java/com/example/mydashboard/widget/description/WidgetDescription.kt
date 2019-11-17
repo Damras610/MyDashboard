@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget
+package com.example.mydashboard.widget.description
 
 data class WidgetDescription(
     val nameResId: Int,

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.WidgetDescription
+import com.example.mydashboard.widget.description.WidgetDescription
 import kotlinx.android.synthetic.main.list_item_add_widget.view.*
 
 class AddWidgetListAdapter(

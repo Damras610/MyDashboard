@@ -67,11 +67,6 @@ class RegistrationFragment : Fragment() {
             val email = emailEditText.editText?.text.toString()
             viewModel.registerAccount(username, password, email)
         }
-
-        backToLoginScreenButton.setOnClickListener {
-            navController.popBackStack(R.id.loginFragment, false)
-        }
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

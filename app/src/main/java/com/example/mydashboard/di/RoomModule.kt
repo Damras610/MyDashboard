@@ -2,11 +2,11 @@ package com.example.mydashboard.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.mydashboard.model.AppDatabase
-import com.example.mydashboard.model.user.UserDao
-import com.example.mydashboard.model.user.UserRepository
-import com.example.mydashboard.model.widget.WidgetDao
-import com.example.mydashboard.model.widget.WidgetRepository
+import com.example.mydashboard.authentication.model.user.UserDao
+import com.example.mydashboard.authentication.model.user.UserRepository
+import com.example.mydashboard.db.AppDatabase
+import com.example.mydashboard.home.model.WidgetDao
+import com.example.mydashboard.home.model.WidgetRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

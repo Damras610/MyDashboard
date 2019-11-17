@@ -1,6 +1,6 @@
-package com.example.mydashboard.model.widget
+package com.example.mydashboard.home.model
 
-import com.example.mydashboard.model.user.UserDao
+import com.example.mydashboard.authentication.model.user.UserDao
 import javax.inject.Inject
 import javax.inject.Singleton
 

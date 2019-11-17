@@ -3,9 +3,9 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.mydashboard.widget.SERVICES
 import com.example.mydashboard.widget.configuration.WidgetParamSettingFragment
 import com.example.mydashboard.widget.configuration.WidgetParamSettingViewModel
+import com.example.mydashboard.widget.description.SERVICES
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector

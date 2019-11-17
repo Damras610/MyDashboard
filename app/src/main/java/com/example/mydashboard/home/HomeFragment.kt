@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
-import com.example.mydashboard.authentication.logindata.AuthenticationState
+import com.example.mydashboard.authentication.model.logindata.AuthenticationState
+import com.example.mydashboard.widget.model.WidgetStorageState
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.activity_main.*
@@ -58,6 +59,13 @@ class HomeFragment : Fragment() {
                 noWidgetTextView.visibility = View.VISIBLE
             } else {
                 noWidgetTextView.visibility = View.GONE
+            }
+        })
+        viewModel.widgetToStoreData.storageState.observe(this, Observer {storageState ->
+            if (storageState == WidgetStorageState.TO_STORE) {
+                viewModel.storeWidget()
+                viewModel.loadWidgets()
+                viewModel.widgetToStoreData.storageState.value = WidgetStorageState.IDLE
             }
         })
 

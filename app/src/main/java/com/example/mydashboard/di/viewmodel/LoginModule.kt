@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.mydashboard.authentication.LoginFragment
 import com.example.mydashboard.authentication.LoginViewModel
-import com.example.mydashboard.authentication.logindata.LoginUserData
-import com.example.mydashboard.model.user.UserRepository
+import com.example.mydashboard.authentication.model.logindata.LoginUserData
+import com.example.mydashboard.authentication.model.user.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module(includes = [
     LoginModule.ProvideViewModel::class,
-    LoginModule.UserDataModule::class
+    LoginModule.LoginUserDataModule::class
 ])
 abstract class LoginModule {
 
@@ -45,13 +45,12 @@ abstract class LoginModule {
     }
 
     @Module
-    class UserDataModule {
+    class LoginUserDataModule {
 
         @Singleton
         @Provides
         fun provideLoginUserData() : LoginUserData {
             return LoginUserData()
         }
-
     }
 }

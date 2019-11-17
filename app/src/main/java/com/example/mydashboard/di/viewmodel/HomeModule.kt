@@ -3,10 +3,11 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.mydashboard.authentication.logindata.LoginUserData
+import com.example.mydashboard.authentication.model.logindata.LoginUserData
 import com.example.mydashboard.home.HomeFragment
 import com.example.mydashboard.home.HomeViewModel
-import com.example.mydashboard.model.widget.WidgetRepository
+import com.example.mydashboard.home.model.WidgetRepository
+import com.example.mydashboard.widget.model.WidgetToStoreData
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
@@ -37,8 +38,8 @@ abstract class HomeModule {
         @Provides
         @IntoMap
         @ViewModelKey(HomeViewModel::class)
-        fun provideHomeViewModel(loginUserData: LoginUserData, widgetRepository: WidgetRepository) : ViewModel {
-            return HomeViewModel(loginUserData, widgetRepository)
+        fun provideHomeViewModel(loginUserData: LoginUserData,  widgetToStoreData: WidgetToStoreData, widgetRepository: WidgetRepository) : ViewModel {
+            return HomeViewModel(loginUserData, widgetToStoreData, widgetRepository)
         }
     }
 }

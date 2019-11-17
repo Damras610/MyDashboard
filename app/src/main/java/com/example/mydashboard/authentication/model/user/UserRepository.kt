@@ -1,4 +1,4 @@
-package com.example.mydashboard.model.user
+package com.example.mydashboard.authentication.model.user
 
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,7 +19,14 @@ class UserRepository @Inject constructor(
     fun saveNewUser(username: String, password: String, email: String = ""): Long {
         var insertedId : Long = -1L
         try {
-            insertedId = userDao.insertUser(User(0, username, password, email))
+            insertedId = userDao.insertUser(
+                User(
+                    0,
+                    username,
+                    password,
+                    email
+                )
+            )
         } finally {
             return (insertedId)
         }

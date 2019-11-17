@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.ServiceDescription
+import com.example.mydashboard.widget.description.ServiceDescription
 import kotlinx.android.synthetic.main.list_item_add_service.view.*
 
 class AddServiceListAdapter(

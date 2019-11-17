@@ -1,4 +1,4 @@
-package com.example.mydashboard.model.user
+package com.example.mydashboard.authentication.model.user
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

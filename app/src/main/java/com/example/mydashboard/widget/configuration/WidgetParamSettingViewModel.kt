@@ -2,9 +2,9 @@ package com.example.mydashboard.widget.configuration
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mydashboard.widget.BaseParamController
-import com.example.mydashboard.widget.ServiceDescription
-import com.example.mydashboard.widget.WidgetParamController
+import com.example.mydashboard.widget.description.BaseParamController
+import com.example.mydashboard.widget.description.ServiceDescription
+import com.example.mydashboard.widget.description.WidgetParamController
 import javax.inject.Inject
 
 class WidgetParamSettingViewModel @Inject constructor(

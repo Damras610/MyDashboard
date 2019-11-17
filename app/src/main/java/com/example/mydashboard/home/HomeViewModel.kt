@@ -2,14 +2,16 @@ package com.example.mydashboard.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mydashboard.authentication.logindata.AuthenticationState
-import com.example.mydashboard.authentication.logindata.LoginUserData
-import com.example.mydashboard.model.widget.Widget
-import com.example.mydashboard.model.widget.WidgetRepository
+import com.example.mydashboard.authentication.model.logindata.AuthenticationState
+import com.example.mydashboard.authentication.model.logindata.LoginUserData
+import com.example.mydashboard.home.model.Widget
+import com.example.mydashboard.home.model.WidgetRepository
+import com.example.mydashboard.widget.model.WidgetToStoreData
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
     val loginUserData: LoginUserData,
+    val widgetToStoreData: WidgetToStoreData,
     private val widgetRepository: WidgetRepository
 ) : ViewModel() {
 
@@ -23,11 +25,17 @@ class HomeViewModel @Inject constructor(
             widgets.value = emptyArray()
             return
         }
-        val username = loginUserData.username.value ?: run {
-            widgets.value = emptyArray()
-            return
-        }
+        val username = loginUserData.username
         widgets.value = widgetRepository.getWidgetFromUser(username)
+    }
+
+    fun storeWidget() {
+        widgetRepository.addWidgetToUser(
+            loginUserData.username,
+            widgetToStoreData.serviceName,
+            widgetToStoreData.widgetName,
+            widgetToStoreData.params
+        )
     }
 
 }

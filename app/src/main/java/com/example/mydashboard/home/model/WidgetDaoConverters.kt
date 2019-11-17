@@ -1,4 +1,4 @@
-package com.example.mydashboard.model.widget
+package com.example.mydashboard.home.model
 
 import androidx.room.TypeConverter
 import com.google.gson.GsonBuilder

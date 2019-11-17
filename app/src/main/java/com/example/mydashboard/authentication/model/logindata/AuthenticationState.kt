@@ -1,4 +1,4 @@
-package com.example.mydashboard.authentication.logindata
+package com.example.mydashboard.authentication.model.logindata
 
 enum class AuthenticationState {
     UNAUTHENTICATED,

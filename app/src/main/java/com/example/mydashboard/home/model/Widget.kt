@@ -1,10 +1,10 @@
-package com.example.mydashboard.model.widget
+package com.example.mydashboard.home.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.example.mydashboard.model.user.User
+import com.example.mydashboard.authentication.model.user.User
 
 @Entity(foreignKeys = [ForeignKey(entity = User::class,
     parentColumns = ["id"],
