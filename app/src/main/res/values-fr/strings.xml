@@ -21,7 +21,7 @@
     <string name="optional_field">*Optionel</string>
     <string name="no_widget">Appuyer sur le bouton \'+\' pour ajouter votre premier widget.</string>
     <string name="service_weather_name">Météo</string>
-    <string name="service_weather_description">Suivez la météo d\'une ville.</string>
+    <string name="service_weather_description">Suivez la météo, partout et tout le temps</string>
     <string name="widget_weather_city_description">Récupérer toutes les informations sur la météo, la température et les données atmosphériques d\'une ville.</string>
     <string name="widget_weather_city_name">Météo dans une ville.</string>
     <string name="widget_weather_city_params_city_name">Ville</string>
@@ -29,5 +29,7 @@
     <string name="add">Ajouter</string>
     <string name="widget_config_setup_widget">Préparez le widget.</string>
     <string name="widget_config_invalid_field">Champ invalide</string>
+    <string name="service_choose_service">Choisissez un service</string>
+    <string name="service_choose_widget">Choisissez un widget</string>
 
 </resources>

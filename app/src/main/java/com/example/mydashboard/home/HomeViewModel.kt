@@ -6,7 +6,7 @@ import com.example.mydashboard.authentication.model.logindata.AuthenticationStat
 import com.example.mydashboard.authentication.model.logindata.LoginUserData
 import com.example.mydashboard.home.model.Widget
 import com.example.mydashboard.home.model.WidgetRepository
-import com.example.mydashboard.widget.model.WidgetToStoreData
+import com.example.mydashboard.widget.model.storage.WidgetToStoreData
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(

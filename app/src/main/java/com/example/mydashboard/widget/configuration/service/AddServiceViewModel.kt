@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.configuration
+package com.example.mydashboard.widget.configuration.service
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

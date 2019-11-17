@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.model
+package com.example.mydashboard.widget.model.storage
 
 enum class WidgetStorageState {
     IDLE,

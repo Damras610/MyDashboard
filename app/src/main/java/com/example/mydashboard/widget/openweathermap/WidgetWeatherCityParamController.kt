@@ -1,7 +1,7 @@
 package com.example.mydashboard.widget.openweathermap
 
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.description.BaseParamController
+import com.example.mydashboard.widget.base.BaseParamController
 import com.example.mydashboard.widget.description.WidgetParamDescription
 
 class WidgetWeatherCityParamController : BaseParamController() {

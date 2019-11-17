@@ -1,23 +1,25 @@
-package com.example.mydashboard.widget.configuration
+package com.example.mydashboard.widget.configuration.widget
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.configuration.adapter.AddWidgetListAdapter
-import com.example.mydashboard.widget.model.WidgetStorageState
+import com.example.mydashboard.widget.model.storage.WidgetStorageState
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_add_widget.view.*
 import javax.inject.Inject
 
 
-class AddWidgetFragment : Fragment(), WidgetParamSettingDialogListener {
+class AddWidgetFragment : Fragment(),
+    WidgetParamSettingDialogListener {
 
     // View Model
     @Inject
@@ -47,14 +49,21 @@ class AddWidgetFragment : Fragment(), WidgetParamSettingDialogListener {
 
         val navController = findNavController()
 
-        adapter = AddWidgetListAdapter(emptyArray(), View.OnClickListener {v ->
-            val viewHolder = v.tag as AddWidgetListAdapter.AddWidgetViewHolder
-            val widgetId = viewHolder.adapterPosition
-            if (widgetId < adapter.dataset.size) {
-                val dialog = WidgetParamSettingFragment(args.serviceId, widgetId, this)
-                dialog.show(requireActivity().supportFragmentManager, WidgetParamSettingFragment::class.java.name)
-            }
-        })
+        adapter = AddWidgetListAdapter(
+            emptyArray(),
+            View.OnClickListener { v ->
+                val viewHolder =
+                    v.tag as AddWidgetListAdapter.AddWidgetViewHolder
+                val widgetId = viewHolder.adapterPosition
+                if (widgetId < adapter.dataset.size) {
+                    val dialog = WidgetParamSettingFragment(
+                        args.serviceId,
+                        widgetId,
+                        this
+                    )
+                    dialog.show(requireActivity().supportFragmentManager, WidgetParamSettingFragment::class.java.name)
+                }
+            })
 
         widgetListView = view.add_widget_listview
         widgetListView.adapter = adapter
@@ -81,5 +90,14 @@ class AddWidgetFragment : Fragment(), WidgetParamSettingDialogListener {
 
     override fun onCancelButton(d: WidgetParamSettingFragment) {
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requireActivity().toolbar.visibility = View.VISIBLE
+        requireActivity().toolbar.setTitle(viewModel.services[args.serviceId].nameResId)
+        requireActivity().toolbar.setSubtitle(R.string.service_choose_widget)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

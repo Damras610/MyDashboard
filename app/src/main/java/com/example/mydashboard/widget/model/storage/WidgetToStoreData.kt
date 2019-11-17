@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.model
+package com.example.mydashboard.widget.model.storage
 
 import androidx.lifecycle.MutableLiveData
 

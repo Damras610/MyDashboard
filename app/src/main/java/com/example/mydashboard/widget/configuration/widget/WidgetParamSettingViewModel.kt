@@ -1,8 +1,8 @@
-package com.example.mydashboard.widget.configuration
+package com.example.mydashboard.widget.configuration.widget
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mydashboard.widget.description.BaseParamController
+import com.example.mydashboard.widget.base.BaseParamController
 import com.example.mydashboard.widget.description.ServiceDescription
 import com.example.mydashboard.widget.description.WidgetParamController
 import javax.inject.Inject

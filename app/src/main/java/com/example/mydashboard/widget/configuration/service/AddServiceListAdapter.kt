@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.configuration.adapter
+package com.example.mydashboard.widget.configuration.service
 
 import android.view.LayoutInflater
 import android.view.View

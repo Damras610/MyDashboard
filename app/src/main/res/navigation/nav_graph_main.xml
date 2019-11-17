@@ -61,19 +61,24 @@
             tools:layout="@layout/fragment_registration"/>
     <fragment
             android:id="@+id/addServiceFragment"
-            android:name="com.example.mydashboard.widget.configuration.AddServiceFragment"
+            android:name="com.example.mydashboard.widget.configuration.service.AddServiceFragment"
             android:label="fragment_add_service"
             tools:layout="@layout/fragment_add_service">
         <action
                 android:id="@+id/action_addServiceFragment_to_addWidgetFragment"
-                app:destination="@id/addWidgetFragment">
-            <argument android:defaultValue="0"
-                      android:name="service_id"/>
+                app:destination="@id/addWidgetFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                    android:defaultValue="0"
+                    android:name="service_id"/>
         </action>
     </fragment>
     <fragment
             android:id="@+id/addWidgetFragment"
-            android:name="com.example.mydashboard.widget.configuration.AddWidgetFragment"
+            android:name="com.example.mydashboard.widget.configuration.widget.AddWidgetFragment"
             android:label="fragment_add_widget"
             tools:layout="@layout/fragment_add_widget">
             <argument

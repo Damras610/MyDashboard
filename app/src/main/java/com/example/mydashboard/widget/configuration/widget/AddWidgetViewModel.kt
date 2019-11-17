@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.configuration
+package com.example.mydashboard.widget.configuration.widget
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.example.mydashboard.widget.description.ServiceDescription
 import com.example.mydashboard.widget.description.WidgetDescription
 import com.example.mydashboard.widget.description.WidgetParamDescription
-import com.example.mydashboard.widget.model.WidgetStorageState
-import com.example.mydashboard.widget.model.WidgetToStoreData
+import com.example.mydashboard.widget.model.storage.WidgetStorageState
+import com.example.mydashboard.widget.model.storage.WidgetToStoreData
 import javax.inject.Inject
 
 class AddWidgetViewModel @Inject constructor(

@@ -19,6 +19,7 @@ class WidgetRepository @Inject constructor(
     }
 
     fun addWidgetToUser(username: String, serviceName: String, widgetName: String, parameters: Map<String, String> = emptyMap()): Long {
+
         val user = userDao.getUserByUsername(username)
         if (user == null)
             return (-1L)

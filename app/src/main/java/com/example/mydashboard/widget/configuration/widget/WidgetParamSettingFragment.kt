@@ -1,4 +1,4 @@
-package com.example.mydashboard.widget.configuration
+package com.example.mydashboard.widget.configuration.widget
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -11,7 +11,6 @@ import com.example.mydashboard.widget.description.WidgetParamDescription
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.field_widget_parameter_setting.view.*
-import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -85,20 +84,15 @@ class WidgetParamSettingFragment(
         val paramsValue = getParamsValue()
         val widgetParamController = viewModel.paramController.value ?: return true
         if (widgetParamController.checkParameters(paramsValue)) {
-            Timber.d("Hello")
             return true
         }
         else {
-            Timber.d("Hella")
             val invalidFields = widgetParamController.invalidFields
             invalidFields.forEach lit@{invalidField ->
-                Timber.d("Helli")
                 layout.children.forEach {
-                    Timber.d("Hellu")
                     val field = it as TextInputLayout
                     val editText = field.field_widget_parameter_settings_text
                     if (invalidField.nameResId == editText.tag) {
-                        Timber.d("Helly")
                         field.error = getString(R.string.widget_config_invalid_field)
                         return@lit
                     }

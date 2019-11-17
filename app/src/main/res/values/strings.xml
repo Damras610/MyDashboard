@@ -29,15 +29,17 @@
     <string name="cd_splash_screen_logo">Dashboard app\'s logo</string>
 
     <!-- Services -->
+    <string name="service_choose_service">Choose a service</string>
     <string name="service_weather_name">Weather</string>
-    <string name="service_weather_description">Keep track of the weather in a city.</string>
+    <string name="service_weather_description">Keep track of the weather, anywhere, anytime</string>
+
+    <!-- Widget configuration -->
+    <string name="service_choose_widget">Choose a widget</string>
+    <string name="widget_config_setup_widget">Set up the widget.</string>
+    <string name="widget_config_invalid_field">Invalid Field</string>
     <string name="widget_weather_city_name">Current weather in a city.</string>
     <string name="widget_weather_city_description">Retrieve the current weather and all atmospheric and temperature data in a city.</string>
     <string name="widget_weather_city_params_city_name">City</string>
-
-    <!-- Widget configuration -->
-    <string name="widget_config_setup_widget">Set up the widget.</string>
-    <string name="widget_config_invalid_field">Invalid Field</string>
 
     <!-- General -->
     <string name="cancel">Cancel</string>

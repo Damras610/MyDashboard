@@ -3,10 +3,10 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import com.example.mydashboard.widget.configuration.AddWidgetFragment
-import com.example.mydashboard.widget.configuration.AddWidgetViewModel
-import com.example.mydashboard.widget.description.SERVICES
-import com.example.mydashboard.widget.model.WidgetToStoreData
+import com.example.mydashboard.widget.SERVICES
+import com.example.mydashboard.widget.configuration.widget.AddWidgetFragment
+import com.example.mydashboard.widget.configuration.widget.AddWidgetViewModel
+import com.example.mydashboard.widget.model.storage.WidgetToStoreData
 import dagger.Module
 import dagger.Provides
 import dagger.android.ContributesAndroidInjector
