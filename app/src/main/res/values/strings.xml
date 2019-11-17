@@ -42,6 +42,7 @@
     <string name="widget_weather_city_params_city_name">City</string>
 
     <!-- General -->
+    <string name="coming_soon">Coming soon</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
 

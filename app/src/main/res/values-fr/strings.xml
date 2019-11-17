@@ -31,5 +31,6 @@
     <string name="widget_config_invalid_field">Champ invalide</string>
     <string name="service_choose_service">Choisissez un service</string>
     <string name="service_choose_widget">Choisissez un widget</string>
+    <string name="coming_soon">A venir prochainement</string>
 
 </resources>

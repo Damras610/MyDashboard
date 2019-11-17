@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.mydashboard.R
 import com.example.mydashboard.authentication.model.logindata.AuthenticationState
+import com.google.android.gms.common.SignInButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,6 +31,7 @@ class LoginFragment : Fragment() {
     private lateinit var passwordEditText: TextInputLayout
     private lateinit var signInButton: Button
     private lateinit var signOnButton: Button
+    private lateinit var googleSignInButton: SignInButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,7 @@ class LoginFragment : Fragment() {
         passwordEditText = view.login_password_editlayout
         signInButton = view.login_sign_in_button
         signOnButton = view.login_sign_on_button
+        googleSignInButton = view.login_google_sign_in_button
 
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer { authState ->
@@ -69,6 +73,9 @@ class LoginFragment : Fragment() {
         }
         signOnButton.setOnClickListener {
             navController.navigate(R.id.action_loginFragment_to_registrationFragment)
+        }
+        googleSignInButton.setOnClickListener {
+            Snackbar.make(view, R.string.coming_soon, Snackbar.LENGTH_SHORT).show()
         }
 
         // Manage back button
