@@ -12,7 +12,9 @@ val SERVICE_DESCRIPTION = ServiceDescription(
         WidgetDescription(
             nameResId = R.string.widget_weather_city_name,
             descriptionResId = R.string.widget_weather_city_description,
-            widgetParamController = WidgetWeatherCityParamController()
+            widgetParamController = WidgetWeatherCityParamController(),
+            dbNameResId = R.string.db_widget_weather_city
         )
-    )
+    ),
+    dbNameResId = R.string.db_service_weather
 )

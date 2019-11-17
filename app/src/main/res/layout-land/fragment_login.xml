@@ -67,8 +67,7 @@
                                 android:autofillHints="username"
                                 android:ems="10"
                                 android:drawableStart="@drawable/selector_account_ic"
-                                android:drawablePadding="8dp"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+                                android:drawablePadding="8dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout

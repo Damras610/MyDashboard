@@ -39,4 +39,8 @@
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
 
+    <!-- DB -->
+    <string name="db_service_weather" translatable="false">weather</string>
+    <string name="db_widget_weather_city" translatable="false">weather_city</string>
+
 </resources>

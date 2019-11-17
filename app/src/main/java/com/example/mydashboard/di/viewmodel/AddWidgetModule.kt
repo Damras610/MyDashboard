@@ -3,6 +3,8 @@ package com.example.mydashboard.di.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.mydashboard.authentication.logindata.LoginUserData
+import com.example.mydashboard.model.widget.WidgetRepository
 import com.example.mydashboard.widget.SERVICES
 import com.example.mydashboard.widget.configuration.AddWidgetFragment
 import com.example.mydashboard.widget.configuration.AddWidgetViewModel
@@ -36,8 +38,8 @@ abstract class AddWidgetModule {
         @Provides
         @IntoMap
         @ViewModelKey(AddWidgetViewModel::class)
-        fun provideAddWidgetViewModel() : ViewModel {
-            return AddWidgetViewModel(SERVICES)
+        fun provideAddWidgetViewModel(widgetRepository: WidgetRepository, loginUserData: LoginUserData) : ViewModel {
+            return AddWidgetViewModel(SERVICES, widgetRepository, loginUserData)
         }
     }
 }

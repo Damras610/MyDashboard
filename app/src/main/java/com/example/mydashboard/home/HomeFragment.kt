@@ -58,7 +58,6 @@ class HomeFragment : Fragment() {
                 noWidgetTextView.visibility = View.VISIBLE
             } else {
                 noWidgetTextView.visibility = View.GONE
-                // TODO Show paramController
             }
         })
 
@@ -66,6 +65,8 @@ class HomeFragment : Fragment() {
         addWidgetFab.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_addServiceFragment)
         }
+
+        viewModel.loadWidgets()
     }
 
     override fun onResume() {

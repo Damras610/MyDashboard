@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_add_widget.view.*
 import javax.inject.Inject
 
 
-class AddWidgetFragment : Fragment() {
+class AddWidgetFragment : Fragment(), WidgetParamSettingDialogListener {
 
     // View Model
     @Inject
@@ -47,7 +47,7 @@ class AddWidgetFragment : Fragment() {
             val viewHolder = v.tag as AddWidgetListAdapter.AddWidgetViewHolder
             val widgetId = viewHolder.adapterPosition
             if (widgetId < adapter.dataset.size) {
-                val dialog = WidgetParamSettingFragment(args.serviceId, widgetId)
+                val dialog = WidgetParamSettingFragment(args.serviceId, widgetId, this)
                 dialog.show(requireActivity().supportFragmentManager, WidgetParamSettingFragment::class.java.name)
             }
         })
@@ -63,4 +63,11 @@ class AddWidgetFragment : Fragment() {
         })
     }
 
+    override fun onAddButton(d: WidgetParamSettingFragment) {
+        viewModel.addWidget(requireContext(), d.serviceId, d.widgetId)
+    }
+
+    override fun onCancelButton(d: WidgetParamSettingFragment) {
+
+    }
 }
