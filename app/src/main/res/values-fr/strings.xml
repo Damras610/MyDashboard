@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Dashboard</string>
+    <string name="app_name">Mon Dashboard</string>
     <string name="back_to_login">Retour à l\'écran de connexion</string>
     <string name="cd_splash_screen_logo">Logo de l\'app Dashboard</string>
     <string name="sign_on">Créer un compte</string>
@@ -32,5 +32,34 @@
     <string name="service_choose_service">Choisissez un service</string>
     <string name="service_choose_widget">Choisissez un widget</string>
     <string name="coming_soon">A venir prochainement</string>
+    <string name="widget_weather_forecast_description">Récupérer toutes les informations sur la météo prévue, la température et les données atmosphériques d\'une ville.</string>
+    <string name="widget_weather_forecast_name">Prévision météo dans une ville.</string>
+
+    <!-- TODO to translate -->
+    <!-- Service: Youtube -->
+    <string name="service_youtube_name">Youtube</string>
+    <string name="service_youtube_description">Stay connected to your favorite media platform</string>
+    <!-- Service: Youtube: DB -->
+    <string name="db_service_youtube" translatable="false">youtube</string>
+    <!-- Widget: Youtube: Video statistics -->
+    <string name="widget_youtube_video_name">Video statistics</string>
+    <string name="widget_youtube_video_description">Retrieve the views, likes, dislikes, comments and all other information about a video</string>
+    <!-- Widget: Youtube: Channel -->
+    <string name="widget_youtube_channel_name">Channel statistics</string>
+    <string name="widget_youtube_channel_description">Retrieve subscribes, date of the last posted video ans all other information about a channel</string>
+    <!-- Widget: Youtube: Trending -->
+    <string name="widget_youtube_trending_name">Watch trending</string>
+    <string name="widget_youtube_trending_description">Watch a video from the top current trending</string>
+
+    <!-- Service: Youtube -->
+    <string name="service_twitch_name">Twitch</string>
+    <string name="service_twitch_description">Enjoy streaming from all over the world</string>
+    <!-- Service: Youtube: DB -->
+    <string name="db_service_twitch" translatable="false">twitch</string>
+    <!-- Widget: Youtube: Video statistics -->
+    <string name="widget_twitch_trending_name">Stream to watch</string>
+    <string name="widget_twitch_trending_description">Get to know who are the top streamers</string>
+    <!-- Widget: Youtube: Video statistics: DB -->
+    <string name="db_widget_twitch_trending" translatable="false">twitch_trending</string>
 
 </resources>

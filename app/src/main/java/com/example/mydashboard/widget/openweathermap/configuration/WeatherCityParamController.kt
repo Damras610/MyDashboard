@@ -1,10 +1,10 @@
-package com.example.mydashboard.widget.openweathermap
+package com.example.mydashboard.widget.openweathermap.configuration
 
 import com.example.mydashboard.R
-import com.example.mydashboard.widget.base.BaseParamController
+import com.example.mydashboard.widget.base.configuration.BaseWidgetParamController
 import com.example.mydashboard.widget.description.WidgetParamDescription
 
-class WidgetWeatherCityParamController : BaseParamController() {
+class WeatherCityParamController : BaseWidgetParamController() {
 
     override val params: Array<WidgetParamDescription>
     val paramChecker: Map<WidgetParamDescription, (String) -> Boolean>

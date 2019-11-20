@@ -8,7 +8,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     RoomModule::class,
-    ViewModelFactoryModule::class
+    ViewModelFactoryModule::class,
+    RetrofitModule::class
 ])
 interface AppComponent {
 

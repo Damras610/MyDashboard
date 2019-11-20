@@ -15,7 +15,8 @@ import javax.inject.Singleton
     HomeModule::class,
     AddServiceModule::class,
     AddWidgetModule::class,
-    WidgetParamSettingViewModule::class
+    WidgetParamSettingModule::class,
+    WeatherCityModule::class
 ])
 class ViewModelFactoryModule {
 

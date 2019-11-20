@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        app:cardCornerRadius="4dp"
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_margin="8dp"
+        android:id="@+id/cardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".widget.openweathermap.ui.WeatherCityFragment">
+
+
+        <ImageView
+                android:src="?android:attr/panelBackground"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/widget_weather_city_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_main_weather"
+                android:gravity="center"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                tools:text="Rain"
+                app:layout_constraintEnd_toEndOf="@+id/widget_weather_city_temp"
+                app:layout_constraintStart_toStartOf="@+id/widget_weather_city_temp"
+                app:layout_constraintTop_toTopOf="@+id/widget_weather_city_icon"
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="4dp"
+                tools:text="Nov 18, 11:59PM"
+                android:gravity="end"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                style="@style/TextAppearance.MaterialComponents.Body1"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_city_country"
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                tools:text="Toulouse, FR"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="@+id/widget_weather_city_icon"
+                app:layout_constraintEnd_toEndOf="@+id/widget_weather_city_icon"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/widget_weather_city_icon"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_max_temp"
+                app:layout_constraintStart_toEndOf="@+id/widget_weather_city_temp"
+                android:layout_marginStart="8dp"
+                tools:text="max 6°C"
+                app:layout_constraintBottom_toTopOf="@+id/widget_weather_city_min_temp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_temp"
+                style="@style/TextAppearance.MaterialComponents.Headline3"
+                tools:text="6°C"
+                app:layout_constraintStart_toEndOf="@+id/widget_weather_city_icon"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@+id/widget_weather_city_main_weather"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_description_weather"
+                style="@style/TextAppearance.MaterialComponents.Body2"
+                tools:text="Light rain"
+                app:layout_constraintStart_toEndOf="@+id/widget_weather_city_temp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/widget_weather_city_main_weather"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_weather_city_min_temp"
+                app:layout_constraintStart_toEndOf="@+id/widget_weather_city_temp"
+                android:layout_marginStart="8dp"
+                tools:text="min 4°C"
+                app:layout_constraintBottom_toBottomOf="@+id/widget_weather_city_temp"
+                android:layout_marginBottom="10dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -7,6 +7,9 @@ import com.example.mydashboard.authentication.model.user.UserRepository
 import com.example.mydashboard.db.AppDatabase
 import com.example.mydashboard.home.model.WidgetDao
 import com.example.mydashboard.home.model.WidgetRepository
+import com.example.mydashboard.widget.openweathermap.repository.OpenWeatherMapRepository
+import com.example.mydashboard.widget.openweathermap.repository.WeatherCityDao
+import com.example.mydashboard.widget.openweathermap.www.OpenWeatherMapWebService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -44,6 +47,18 @@ class RoomModule {
     @Provides
     fun provideWidgetRepository(userDao: UserDao, widgetDao: WidgetDao) : WidgetRepository {
         return WidgetRepository(userDao, widgetDao)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWeatherCityDao(appDatabase: AppDatabase) : WeatherCityDao {
+        return appDatabase.weatherCityDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideOpenWeatherMapRepository(weatherCityDao: WeatherCityDao, openWeatherMapWebService: OpenWeatherMapWebService) : OpenWeatherMapRepository {
+        return OpenWeatherMapRepository(weatherCityDao, openWeatherMapWebService)
     }
 
 }

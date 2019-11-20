@@ -115,7 +115,6 @@ class WidgetParamSettingFragment(
             editText.hint = getString(param.nameResId)
             editText.tag = param.nameResId
         }
-
         return layout
     }
 

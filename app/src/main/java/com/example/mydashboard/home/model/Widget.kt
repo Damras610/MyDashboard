@@ -11,13 +11,9 @@ import com.example.mydashboard.authentication.model.user.User
     childColumns = ["user_id"],
     onDelete = ForeignKey.CASCADE)])
 data class Widget (
-    @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    @ColumnInfo(name = "user_id")
-    val userId: Long,
-    @ColumnInfo(name = "service_name")
-    val serviceName: String,
-    @ColumnInfo(name = "widget_name")
-    val widgetName: String,
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    @ColumnInfo(name = "user_id") val userId: Long,
+    @ColumnInfo(name = "service_name") val serviceName: String,
+    @ColumnInfo(name = "widget_name") val widgetName: String,
     val parameters: Map<String, String>
 )

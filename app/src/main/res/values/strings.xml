@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">My Dashboard</string>
 
+    <!-- General texts -->
+    <string name="coming_soon">Coming soon</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+
     <!-- Splash texts -->
     <string name="welcome_in">Welcome in your</string>
 
@@ -28,27 +33,59 @@
     <!-- Image view content description -->
     <string name="cd_splash_screen_logo">Dashboard app\'s logo</string>
 
-    <!-- Services -->
+    <!-- Service configuration texts -->
     <string name="service_choose_service">Choose a service</string>
-    <string name="service_weather_name">Weather</string>
-    <string name="service_weather_description">Keep track of the weather, anywhere, anytime</string>
 
-    <!-- Widget configuration -->
+    <!-- Widget configuration texts -->
     <string name="service_choose_widget">Choose a widget</string>
     <string name="widget_config_setup_widget">Set up the widget.</string>
     <string name="widget_config_invalid_field">Invalid Field</string>
+
+    <!-- Service: Weather -->
+    <string name="service_weather_name">Weather</string>
+    <string name="service_weather_description">Keep track of the weather, anywhere, anytime</string>
+    <!-- Service: Weather: DB -->
+    <string name="db_service_weather" translatable="false">weather</string>
+    <!-- Widget: Weather: Current weather in a city -->
     <string name="widget_weather_city_name">Current weather in a city.</string>
     <string name="widget_weather_city_description">Retrieve the current weather and all atmospheric and temperature data in a city.</string>
     <string name="widget_weather_city_params_city_name">City</string>
-
-    <!-- General -->
-    <string name="coming_soon">Coming soon</string>
-    <string name="cancel">Cancel</string>
-    <string name="add">Add</string>
-
-    <!-- DB -->
-    <string name="db_service_weather" translatable="false">weather</string>
+    <!-- Widget: Weather: Forecast -->
+    <string name="widget_weather_forecast_name">Forecast weather in a city.</string>
+    <string name="widget_weather_forecast_description">Retrieve the forecast weather and all atmospheric and temperature data in a city.</string>
+    <!-- Widget: Weather: DB -->
     <string name="db_widget_weather_city" translatable="false">weather_city</string>
+    <string name="db_widget_weather_forecast" translatable="false">weather_forecast</string>
     <string name="db_param_weather_city_city" translatable="false">weather_city_city</string>
 
+
+    <!-- Service: Youtube -->
+    <string name="service_youtube_name">Youtube</string>
+    <string name="service_youtube_description">Stay connected to your favorite media platform</string>
+    <!-- Service: Youtube: DB -->
+    <string name="db_service_youtube" translatable="false">youtube</string>
+    <!-- Widget: Youtube: Video statistics -->
+    <string name="widget_youtube_video_name">Video statistics</string>
+    <string name="widget_youtube_video_description">Retrieve the views, likes, dislikes, comments and all other information about a video</string>
+    <!-- Widget: Youtube: Channel -->
+    <string name="widget_youtube_channel_name">Channel statistics</string>
+    <string name="widget_youtube_channel_description">Retrieve subscribes, date of the last posted video ans all other information about a channel</string>
+    <!-- Widget: Youtube: Trending -->
+    <string name="widget_youtube_trending_name">Watch trending</string>
+    <string name="widget_youtube_trending_description">Watch a video from the top current trending</string>
+    <!-- Widget: Youtube: Video statistics: DB -->
+    <string name="db_widget_youtube_video" translatable="false">youtube_video</string>
+    <string name="db_widget_youtube_channel" translatable="false">youtube_channel</string>
+    <string name="db_widget_youtube_trending" translatable="false">youtube_trending</string>
+
+    <!-- Service: Youtube -->
+    <string name="service_twitch_name">Twitch</string>
+    <string name="service_twitch_description">Enjoy streaming from all over the world</string>
+    <!-- Service: Youtube: DB -->
+    <string name="db_service_twitch" translatable="false">twitch</string>
+    <!-- Widget: Youtube: Video statistics -->
+    <string name="widget_twitch_trending_name">Stream to watch</string>
+    <string name="widget_twitch_trending_description">Get to know who are the top streamers</string>
+    <!-- Widget: Youtube: Video statistics: DB -->
+    <string name="db_widget_twitch_trending" translatable="false">twitch_trending</string>
 </resources>

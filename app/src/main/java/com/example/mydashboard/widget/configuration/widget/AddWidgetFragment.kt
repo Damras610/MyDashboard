@@ -85,6 +85,7 @@ class AddWidgetFragment : Fragment(),
     override fun onAddButton(d: WidgetParamSettingFragment) {
         if (d.checkParamsValue()) {
             viewModel.addWidget(requireContext(), d.serviceId, d.widgetId, d.getParamsValue())
+            d.dismiss()
         }
     }
 

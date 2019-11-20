@@ -12,9 +12,9 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module(includes = [
-    WidgetParamSettingViewModule.ProvideViewModel::class
+    WidgetParamSettingModule.ProvideViewModel::class
 ])
-abstract class WidgetParamSettingViewModule {
+abstract class WidgetParamSettingModule {
 
     @ContributesAndroidInjector(modules = [
         InjectViewModel::class

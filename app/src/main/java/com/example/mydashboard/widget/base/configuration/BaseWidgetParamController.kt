@@ -1,9 +1,9 @@
-package com.example.mydashboard.widget.base
+package com.example.mydashboard.widget.base.configuration
 
 import com.example.mydashboard.widget.description.WidgetParamController
 import com.example.mydashboard.widget.description.WidgetParamDescription
 
-open class BaseParamController : WidgetParamController {
+open class BaseWidgetParamController : WidgetParamController {
 
     override val params: Array<WidgetParamDescription> = emptyArray()
     override var invalidFields: Array<WidgetParamDescription> = emptyArray()

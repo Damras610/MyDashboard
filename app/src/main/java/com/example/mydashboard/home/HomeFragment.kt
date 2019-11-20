@@ -4,14 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mydashboard.R
 import com.example.mydashboard.authentication.model.logindata.AuthenticationState
+import com.example.mydashboard.home.model.Widget
+import com.example.mydashboard.widget.WidgetFragmentFactory
 import com.example.mydashboard.widget.model.storage.WidgetStorageState
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.android.support.AndroidSupportInjection
@@ -29,7 +33,7 @@ class HomeFragment : Fragment() {
     // Views
     private lateinit var noWidgetTextView: TextView
     private lateinit var addWidgetFab: FloatingActionButton
-    private lateinit var widgetsList: RecyclerView
+    private lateinit var widgetsList: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +53,7 @@ class HomeFragment : Fragment() {
         // Init the views
         noWidgetTextView = view.home_no_widget_tv
         addWidgetFab = view.home_add_widget_fab
-        widgetsList = view.home_widgets_list
+        widgetsList = view.home_widgets_container
 
         // Observe models
         viewModel.loginUserData.authState.observe(this, Observer {authState ->
@@ -62,9 +66,11 @@ class HomeFragment : Fragment() {
             if (widgets.isEmpty()) {
                 noWidgetTextView.visibility = View.VISIBLE
                 widgetsList.visibility = View.GONE
+
             } else {
                 noWidgetTextView.visibility = View.GONE
                 widgetsList.visibility = View.VISIBLE
+                addWidgetToView(widgets)
             }
         })
         viewModel.widgetToStoreData.storageState.observe(this, Observer {storageState ->
@@ -81,6 +87,11 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.loadWidgets()
+
+        // Manage back button
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().finish()
+        }
     }
 
     override fun onResume() {
@@ -90,5 +101,23 @@ class HomeFragment : Fragment() {
         requireActivity().toolbar.subtitle = null
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    }
+
+    fun addWidgetToView(widget: Array<Widget>) {
+
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        // Remove old fragments
+        fragmentManager.popBackStack("widgetsBackStack", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+        // Add new fragments
+        fragmentTransaction.addToBackStack("widgetsBackStack")
+        val widgetFragmentFactory = WidgetFragmentFactory(requireContext())
+        widget.forEach { widget ->
+            val fragment = widgetFragmentFactory.create(widget)
+            fragmentTransaction.add(R.id.home_widgets_container, fragment)
+        }
+        fragmentTransaction.commit()
     }
 }
